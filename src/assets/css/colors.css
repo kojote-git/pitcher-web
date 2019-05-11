@@ -1,0 +1,26 @@
+.bgc-darker {
+    background-color: rgb(18, 23, 25);
+}
+
+.bgc-dark {
+    background-color: rgb(42, 50, 53);
+}
+
+.c-dark {
+    color: rgb(18, 23, 25);
+}
+
+.bgc-primary {
+    background-color: rgb(15, 179, 108);
+}
+.bgc-primary-light {
+    background-color: rgb(240, 255, 240);
+}
+
+.bgc-light {
+    background-color: rgb(247, 248, 250);
+}
+
+.bgc-orange {
+    background-color: rgb(239, 113, 33);
+}

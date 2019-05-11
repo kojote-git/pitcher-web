@@ -1,0 +1,141 @@
+#menu-hr {
+    height: 3px;
+    background-color: rgb(32, 40, 43);
+    border: none;
+}
+
+.menu {
+    background-color: rgb(52, 60, 63);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: rgb(220, 220, 220);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.25em;
+}
+
+.menu-item-expanded {
+    display: grid;
+    grid-template-columns: auto 50px;
+    padding: 5px 5px 5px 5px;
+}
+
+.menu-item-icon {
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    background-color: rgb(32, 40, 43);
+    transition: background-color 0.15s ease-in;
+}
+
+.menu-item-icon:hover {
+    cursor: pointer;
+    background-color: rgb(17, 25, 28);
+}
+
+.menu-item-text {
+    text-align: left;
+    background-color: rgb(42, 50, 53);
+    height: 40px;
+    line-height: 40px;
+    transition: background-color 0.15s ease-in;
+}
+
+
+.menu-item-text:hover {
+    cursor: pointer;
+    background-color: rgb(32, 40, 43);
+}
+
+.menu-item-text-expanded {
+    padding-right: 15px;
+    padding-left: 15px;
+    overflow: hidden;
+}
+
+@media (min-width: 992px) {
+    .menu {
+        height: 100%;
+    }
+    
+    .menu-sidebar-fixed {
+        position: fixed;
+        transition: width 0.25s ease!important;
+        top: 0;
+    }
+
+    .menu-sidebar-fixed-placeholder-collapsed {
+        width: 55px;
+        transition: width 0.25s ease;
+        
+        flex-shrink: 0;
+        flex-basis: 55px;
+        transition: flex-basis 0.25s ease;
+    }
+
+    .menu-sidebar-fixed-placeholder-expanded {
+        width: 250px;
+        transition: width 0.3s ease;
+
+        flex-shrink: 0;
+        flex-basis: 250px;
+        transition: flex-basis 0.3s ease;
+    }
+
+    .menu-collapsed {
+        width: 55px;
+        transition: width 0.25s ease;
+
+        flex-shrink: 0;
+        flex-basis: 55px;
+    }
+    
+    .menu-expanded {
+        width: 250px;
+        transition: width 0.3s ease;
+
+        flex-shrink: 0;
+        flex-basis: 250px;
+    }
+
+    .menu-item-text-collapsed {
+        display: none;
+    }    
+
+    .menu-item-collapsed {
+        padding: 5px 5px 5px 5px;
+    }
+}
+
+@media (max-width: 992px) {
+    #sidebar-toggle {
+        display: none;
+    }
+
+    .menu-item-expanded {
+        padding: 5px;
+    }
+
+    .menu-item-collapsed {
+        display: grid;
+        grid-template-columns: auto 50px;
+        padding: 5px 5px 5px 5px;
+    }
+
+    .menu-expanded {
+        width: 100%;
+        max-height: 1000px;
+        overflow: hidden;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        transition: max-height 0.4s ease-in;
+    }
+
+    .menu-collapsed {
+        max-height: 0px;
+        width: 100%;
+        overflow: hidden;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        transition: max-height 0.4s ease-out;
+    }
+}
