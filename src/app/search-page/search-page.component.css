@@ -94,13 +94,13 @@
 }
 
 #researches-list {
-    padding: 15px;
+    padding: 15px 0 15px 0;
 }
 
 .research-list-item {
     margin-top: 15px;
     margin-bottom: 15px;
-    padding: 10px 15px 10px 15px;
+    padding: 10px 0px 10px 0px;
 }
 
 .research-list-item-section {

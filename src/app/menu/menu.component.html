@@ -49,38 +49,40 @@
 			<img src="assets/img/question-mark-white.png" alt="" class="full-width full-height">
 		</div>
 	</div>
-	<hr id="menu-hr"/>
-	<div class="menu-item menu-item-collapsed">
-		<div class="menu-item-text menu-item-text-collapsed">
-			<a  class="menu-link"
-				[routerLink]="['/auth']"
-				[queryParams]='{form_tab: "sign-in"}'>
-				Sign In
-			</a>
+	<div *ngIf="!isAuthenticated()">
+		<hr id="menu-hr"/>
+		<div class="menu-item menu-item-collapsed">
+			<div class="menu-item-text menu-item-text-collapsed">
+				<a  class="menu-link"
+					[routerLink]="['/auth']"
+					[queryParams]='{form_tab: "sign-in"}'>
+					Sign In
+				</a>
+			</div>
+			<div class="menu-item-icon">
+				<a  class="menu-link"
+					[routerLink]="['/auth']"
+					[queryParams]='{form_tab: "sign-in"}'>
+					<img src="assets/img/sign-in-white.png" alt="" class="full-width full-height">
+				</a>
+			</div>
 		</div>
-		<div class="menu-item-icon">
-			<a  class="menu-link"
-				[routerLink]="['/auth']"
-				[queryParams]='{form_tab: "sign-in"}'>
-				<img src="assets/img/sign-in-white.png" alt="" class="full-width full-height">
-			</a>
-		</div>
-	</div>
-	<div class="menu-item menu-item-collapsed">
-		<div class="menu-item-text menu-item-text-collapsed">
-			<a  class="menu-link"
-				[routerLink]="['/auth']"
-				[queryParams]='{form_tab: "sign-up"}'>
-				Sign Up
-			</a>
-		</div>
-		<div class="menu-item-icon">
-			<a  
-				class="menu-link"
-				[routerLink]="['/auth']"
-				[queryParams]='{form_tab: "sign-up"}'>
-				<img src="assets/img/sign-up-white.png" alt="" class="full-width full-height">
-			</a>
+		<div class="menu-item menu-item-collapsed">
+			<div class="menu-item-text menu-item-text-collapsed">
+				<a  class="menu-link"
+					[routerLink]="['/auth']"
+					[queryParams]='{form_tab: "sign-up"}'>
+					Sign Up
+				</a>
+			</div>
+			<div class="menu-item-icon">
+				<a  
+					class="menu-link"
+					[routerLink]="['/auth']"
+					[queryParams]='{form_tab: "sign-up"}'>
+					<img src="assets/img/sign-up-white.png" alt="" class="full-width full-height">
+				</a>
+			</div>
 		</div>
 	</div>
 </div>

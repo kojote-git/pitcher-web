@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { AuthenticationService } from '../services/auth/authentication.service';
 
 interface Menu {
 	element: HTMLElement,
@@ -17,7 +18,7 @@ export class MenuComponent implements OnInit {
 	headerHeight = 60;
 	self = this;
 	
-	constructor() { }
+	constructor(private authService: AuthenticationService) { }
 
 	ngOnInit() {
 		let self = this;
@@ -38,6 +39,10 @@ export class MenuComponent implements OnInit {
 		this.hamburger = document.getElementById("hamburger-menu");
 		this.sidebarToggle.addEventListener("click", () => this.toggleMenu(this));
 		this.hamburger.addEventListener("click", () => this.toggleMenu(this));
+	}
+
+	isAuthenticated() : boolean {
+		return this.authService.isAuthenticated();
 	}
 
 	private toggleMenu(self) : void {

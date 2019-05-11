@@ -31,6 +31,10 @@ nav {
     font-size: 1.0em;
 }   
 
+#profile-greeting {
+    font-size: 1.1em;
+}
+
 #search-bar:focus {
     outline: none;
 }

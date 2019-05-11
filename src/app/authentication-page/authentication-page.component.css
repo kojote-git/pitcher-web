@@ -171,3 +171,14 @@
     padding-right: 5px;
     padding-left: 5px;
 }
+
+.error-message-container {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+}
+
+.error-message {
+    color: rgb(245, 10, 10);
+    font-size: 1em;
+}

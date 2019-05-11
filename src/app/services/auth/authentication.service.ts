@@ -10,11 +10,11 @@ declare var setCookie: any;
 declare var deleteCookie: any;
 
 export interface HttpResponseCallback {
-	perform(response: HttpResponse<Object>) : void;
+	(response: HttpResponse<Object>) : void;
 }
 
 export interface HttpErrorResponseCallback {
-	perform(error: HttpErrorResponse) : void;
+	(error: HttpErrorResponse) : void;
 }
 
 @Injectable({
@@ -57,13 +57,19 @@ export class AuthenticationService {
 			}
 		).subscribe(
 			response => {
+				let credentials = {
+					id: response.body["id"],
+					access_token: response.body["access_token"],
+					refresh_token: response.body["refresh_token"]
+				}
+				setCookie("userCredentials", JSON.stringify(credentials));
 				if (onSuccess) {
-					onSuccess.perform(response);
+					onSuccess(response);
 				}
 			},
 			error => {
 				if (onFailure) {
-					onFailure.perform(error);
+					onFailure(error);
 				}
 			}
 		);
@@ -83,15 +89,19 @@ export class AuthenticationService {
 			}
 		).subscribe(
 			response => {
-				let credentials = JSON.stringify(response.body);
-				setCookie("userCredentials", credentials);
+				let credentials = {
+					id: response.body["id"],
+					access_token: response.body["access_token"],
+					refresh_token: response.body["refresh_token"]
+				}
+				setCookie("userCredentials", JSON.stringify(credentials));
 				if (onSuccess) {
-					onSuccess.perform(response);
+					onSuccess(response);
 				}
 			},
 			error => {
 				if (onFailure) {
-					onFailure.perform(error);
+					onFailure(error);
 				}
 			}
 		);
@@ -108,20 +118,22 @@ export class AuthenticationService {
 			this.endpoints.logoutAccess.url,
 			{
 				headers: {
-					Authorization: `Token ${jsonCredentials["access_token"]}`
+					Authorization: `Bearer ${jsonCredentials["access_token"]}`
 				}
 			}
-		);
-		this.http.request(
-			this.endpoints.logoutRefresh.method,
-			this.endpoints.logoutRefresh.url,
-			{
-				headers: {
-					Authorization: `Token ${jsonCredentials["refresh_token"]}`
+		).subscribe(response => {
+			this.http.request(
+				this.endpoints.logoutRefresh.method,
+				this.endpoints.logoutRefresh.url,
+				{
+					headers: {
+						Authorization: `Bearer ${jsonCredentials["refresh_token"]}`
+					}
 				}
-			}
-		);
-		deleteCookie("userCredentials");
+			).subscribe(response => {
+				deleteCookie("userCredentials");
+			});
+		});
 	}
 
 	public isAuthenticated() : boolean {

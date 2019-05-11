@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../services/auth/authentication.service';
+import { HttpResponse } from '@angular/common/http';
+import { Router, ActivatedRouteSnapshot } from '@angular/router';
+import { routerNgProbeToken } from '@angular/router/src/router_module';
 
 // assets/js/ui/tabs.js
 declare var TabController: any;
@@ -13,20 +16,28 @@ declare var DATA_TAB_ID: string;
 	styleUrls: ['./authentication-page.component.css']
 })
 export class AuthenticationPageComponent implements OnInit {
+	private signUpErrorMessage;
+	private signInErrorMessage;
+	
 	private signIn = {
-		password: "",
-		email: ""
+		user_password: "",
+		user: ""
 	};
 
 	private signUp = {
 		email: "",
 		username: "",
 		isCompany: false,
-		companyName: "",
-		password: ""
+		password: "",
+		reenterPassword: "",
+		fullname: ""
 	};
 
-	constructor(private authService: AuthenticationService) {
+	constructor(private authService: AuthenticationService, private router: Router) {
+		if (authService.isAuthenticated()) {
+			router.navigate(["/"]);
+		}
+		router.routeReuseStrategy.shouldReuseRoute = () => false;
 	}
 
 	ngOnInit() {
@@ -66,10 +77,32 @@ export class AuthenticationPageComponent implements OnInit {
 	}
 
 	public submitSignIn() {
-		this.authService.login(this.signIn);
+		this.authService.login(this.signIn, 
+			response => { 
+				this.router.navigate(["/"]);
+			},
+			error => {
+				this.signInErrorMessage = error.error.message;
+			}
+		);
 	}
 
 	public submitSignUp() {
-		this.authService.register(this.signUp);
+		if (this.signUp.password !== this.signUp.reenterPassword) {
+			this.signUpErrorMessage = "passwords don't match";
+			return;
+		}
+		if (this.signUp.email.length < 3 && this.signUp.email.indexOf("@") === -1) {
+			this.signUpErrorMessage = "invalid email address";
+			return;
+		}
+		this.authService.register(this.signUp, 
+			response => {
+				this.router.navigate(["/"]);
+			},
+			error => {
+				this.signUpErrorMessage = error.error.message;
+			}
+		);
 	}
 }

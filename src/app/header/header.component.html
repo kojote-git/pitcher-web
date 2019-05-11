@@ -44,10 +44,10 @@
 				<div class="profile-info">
 					<div class="profile-pic-container">
 						<img id="profile-pic" 
-							src="../res/sign-up-white.png" alt="" class="profile-pic">
+							src="assets/img/sign-up-white.png" alt="" class="profile-pic">
 					</div>
 					<div class="profile-greeting">
-						Hello, <span class="bold">user</span>
+						Authenticated
 					</div>
 				</div>
 				<div>
@@ -55,7 +55,7 @@
 						class="profile-dropdown-controls">
 						<li class="profile-dropdown-control">your profile</li>
 						<li class="profile-dropdown-control">settings</li>
-						<li class="profile-dropdown-control">logout</li>
+						<li class="profile-dropdown-control" (click)="logout()">logout</li>
 					</ul>
 				</div>
 			</div>

@@ -11,13 +11,17 @@
         <div data-tab-id="sign-in" class="auth-form-body" data-active-tab>
             <div class="auth-form-input-container">
                 <label class="auth-form-label">email</label>
-                <input [(ngModel)]="signIn.email" placeholder="email" class="auth-form-input">
+                <input [(ngModel)]="signIn.user" placeholder="email" class="auth-form-input">
             </div>
             <div class="auth-form-input-container">
                 <label class="auth-form-label">password</label>
                 <input class="auth-form-input" 
-                    [(ngModel)]="signIn.password"
+                    type="password"
+                    [(ngModel)]="signIn.user_password"
                     placeholder="password">
+            </div>
+            <div class="error-message-container">
+                <span class="error-message">{{signInErrorMessage}}</span>
             </div>
             <div class="auth-form-input-container submit-button-container">
                 <div class="submit-button" (click)="submitSignIn()">
@@ -42,40 +46,51 @@
             <div class="auth-form-input-container">
                 <label class="auth-form-label">email</label>
                 <input type="text" class="auth-form-input"
+                    [(ngModel)]="signUp.email"
                     placeholder="email">
             </div>
             <div class="auth-form-input-container">
                 <label class="auth-form-label">username</label>
                 <input type="text" class="auth-form-input"
+                    [(ngModel)]="signUp.username"
                     placeholder="username">
             </div>
             <div class="auth-form-input-container">
                 <label class="auth-form-label">full name</label>
                 <input type="text" class="auth-form-input"
+                    [(ngModel)]="signUp.fullname"
                     placeholder="full name">
             </div>
             <div class="auth-form-input-container">
                 <div id="auth-form-company-checkboxes">
                     <div class="auth-form-company-checkbox-container">
-                        <input id="represents-company" type="checkbox">
+                        <input id="represents-company" 
+                            [(ngModel)]="signUp.isCompany"
+                            type="checkbox">
                         <label for="represents-company">I represent a company</label>
                     </div>
                 </div>
                 <input id="company-name" type="text" class="auth-form-input"
+                    [(ngModel)]="signUp.company_name"
                     placeholder="company" disabled="true">
             </div>
             <div class="auth-form-input-container">
                 <label class="auth-form-label">password</label>
-                <input type="text" class="auth-form-input" 
+                <input type="password" class="auth-form-input" 
+                    [(ngModel)]="signUp.password"
                     placeholder="password">
             </div>
             <div class="auth-form-input-container">
                 <label class="auth-form-label">confirm password</label>
-                <input type="text" class="auth-form-input" 
+                <input type="password" class="auth-form-input" 
+                    [(ngModel)]="signUp.reenterPassword"
                     placeholder="password">
             </div>
+            <div class="error-message-container">
+                <span class="error-message">{{signUpErrorMessage}}</span>
+            </div>
             <div class="auth-form-input-container submit-button-container">
-                <div class="submit-button">
+                <div class="submit-button" (click)="submitSignUp()">
                     Submit
                 </div>
             </div>
