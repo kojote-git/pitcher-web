@@ -2,12 +2,12 @@
 	<div id="header-contents">
 		<div id="logo-container" class="header-item">
 			<div id="logo-large">
-				<a href="#">
+				<a routerLink="/">
 					<img src="assets/img/logo_full_light.png" class="full-height" alt="">
 				</a>
 			</div>
 			<div id="logo-small">
-				<a href="#">
+				<a routerLink="/">
 					<img src="assets/img/logo.png" class="full-height" alt="">
 				</a>
 			</div>
@@ -26,15 +26,38 @@
 			<div id="hamburger-container">
 				<img id="hamburger-menu" src="assets/img/menu-humb-512.png" class="full-height full-width" alt="">
 			</div>
-			<div id="user-controls">
+			<div id="user-controls" *ngIf="!isAuthenticated()">
 				<ul class="horizontal-list">
 					<li class="hl-item">
-						<a href="authentication.html?form_tab=sign-in" class="link-w">Sign In</a>
+						<a  [routerLink]="['/auth']" 
+							[queryParams]='{form_tab: "sign-in"}'
+							class="link-w">Sign In</a>
 					</li>
 					<li class="hl-item">
-						<a href="authentication.html?form_tab=sign-up" class="link-w">Sign Up</a>
+						<a 	[routerLink]="['/auth']" 
+							[queryParams]='{form_tab: "sign-up"}'
+							class="link-w">Sign Up</a>
 					</li>
 				</ul>
+			</div>
+			<div id="user-controls" class="user-controls authenticated" *ngIf="isAuthenticated()">
+				<div class="profile-info">
+					<div class="profile-pic-container">
+						<img id="profile-pic" 
+							src="../res/sign-up-white.png" alt="" class="profile-pic">
+					</div>
+					<div class="profile-greeting">
+						Hello, <span class="bold">user</span>
+					</div>
+				</div>
+				<div>
+					<ul id="profile-dropdown-controls" 
+						class="profile-dropdown-controls">
+						<li class="profile-dropdown-control">your profile</li>
+						<li class="profile-dropdown-control">settings</li>
+						<li class="profile-dropdown-control">logout</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../services/auth/authentication.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+	selector: 'app-header',
+	templateUrl: './header.component.html',
+	styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+	constructor(private authService: AuthenticationService) { }
 
-  ngOnInit() {
-  }
+	ngOnInit() {
+	}
+
+	isAuthenticated() : boolean {
+		return this.authService.isAuthenticated();
+	}
 
 }

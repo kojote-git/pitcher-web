@@ -1,5 +1,5 @@
 <div id="authentication-page-contents">
-    <form id="auth-form" action="">
+    <div id="auth-form" action="">
         <div id="auth-form-tab-controls">
             <div class="auth-form-tab-control auth-form-tab-control-active" data-tab-id-binding="sign-in">
                 Sign In
@@ -11,16 +11,16 @@
         <div data-tab-id="sign-in" class="auth-form-body" data-active-tab>
             <div class="auth-form-input-container">
                 <label class="auth-form-label">email</label>
-                <input type="text" class="auth-form-input"
-                    placeholder="email" ng-model="signIn.email">
+                <input [(ngModel)]="signIn.email" placeholder="email" class="auth-form-input">
             </div>
             <div class="auth-form-input-container">
                 <label class="auth-form-label">password</label>
-                <input type="text" class="auth-form-input" 
-                    placeholder="password" ng-mode="signIn.password">
+                <input class="auth-form-input" 
+                    [(ngModel)]="signIn.password"
+                    placeholder="password">
             </div>
             <div class="auth-form-input-container submit-button-container">
-                <div class="submit-button" ng-click="submitSignIn()">
+                <div class="submit-button" (click)="submitSignIn()">
                     Submit
                 </div>
             </div>
@@ -33,7 +33,7 @@
             </div>
             <div class="auth-via-media-container auth-via-facebook">
                 <div class="auth-via-media-icon">
-                    <img src="../res/facebook-icon.png" class="full-width full-heigh" alt="">
+                    <img src="assets/img/facebook-icon.png" class="full-width full-heigh" alt="">
                 </div>
                 <div class="auth-via-media-text">Facebook</div>
             </div>
@@ -42,7 +42,7 @@
             <div class="auth-form-input-container">
                 <label class="auth-form-label">email</label>
                 <input type="text" class="auth-form-input"
-                    placeholder="email" ng-model="signUp.email">
+                    placeholder="email">
             </div>
             <div class="auth-form-input-container">
                 <label class="auth-form-label">username</label>
@@ -52,35 +52,35 @@
             <div class="auth-form-input-container">
                 <label class="auth-form-label">full name</label>
                 <input type="text" class="auth-form-input"
-                    placeholder="full name" ng-model="fullname">
+                    placeholder="full name">
             </div>
             <div class="auth-form-input-container">
                 <div id="auth-form-company-checkboxes">
                     <div class="auth-form-company-checkbox-container">
-                        <input id="represents-company" type="checkbox" ng-model="signUp.isCompany">
+                        <input id="represents-company" type="checkbox">
                         <label for="represents-company">I represent a company</label>
                     </div>
                 </div>
                 <input id="company-name" type="text" class="auth-form-input"
-                    placeholder="company" disabled="true" ng-model="signUp.companyName">
+                    placeholder="company" disabled="true">
             </div>
             <div class="auth-form-input-container">
                 <label class="auth-form-label">password</label>
                 <input type="text" class="auth-form-input" 
-                    placeholder="password" ng-model="signUp.password">
+                    placeholder="password">
             </div>
             <div class="auth-form-input-container">
                 <label class="auth-form-label">confirm password</label>
                 <input type="text" class="auth-form-input" 
-                    placeholder="password" ng-model="signUp.confirmPassword">
+                    placeholder="password">
             </div>
             <div class="auth-form-input-container submit-button-container">
-                <div class="submit-button" ng-click="submitSignUp()">
+                <div class="submit-button">
                     Submit
                 </div>
             </div>
         </div>
-    </form>
+    </div>
     <div id="authentication-hints">
         <h3 class="text-center">Why have an account?</h3>
         <ul id="authentication-hints-list">

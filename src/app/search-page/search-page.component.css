@@ -1,0 +1,148 @@
+#filters-section {
+    border-bottom: 1px solid rgb(120, 120, 120);
+    padding-bottom: 5px;
+}
+
+#filters-toggle-wrapper {
+    display: flex;
+}
+
+#filters-toggle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: background-color 0.25s ease-out;
+}
+
+#filters-toggle:hover {
+    cursor: pointer;
+    background-color: rgb(250, 250, 250);
+    transition: background-color 0.25s ease-in;
+}
+
+#filters-toggle-icon {
+    width: 20px;
+    height: 20px;
+}
+
+#filters-toggle-text {
+    padding: 5px;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+#apply-filters {
+    background-color: rgb(15, 179, 108);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+.filter-columns {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+}
+
+.filter-options-list {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.filter-name {
+    font-weight: bold;
+    font-size: 1em;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid rgb(120, 120, 120);
+}
+
+.filter-options {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 5px;
+}
+
+.filter-column {
+    padding-right: 5%;
+    flex-basis: 150px;
+    flex-grow: 1;
+}
+
+.filters-expanded {
+    width: 100%;
+    max-height: 1000px;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.filters-collapsed {
+    max-height: 0px;
+    width: 100%;
+    overflow: hidden;
+    transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
+}
+
+.date-input-grid {
+    display: grid;
+    grid-template-columns: auto 150px;
+    grid-column-gap: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#researches-list {
+    padding: 15px;
+}
+
+.research-list-item {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 10px 15px 10px 15px;
+}
+
+.research-list-item-section {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.research-name {
+    font-size: 1.1em;
+    font-weight: bold;
+    border-bottom: 1px solid rgb(200, 200, 200);
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.service-label {
+    display: inline-block;
+    padding: 5px 10px 5px 10px;
+    background-color: rgb(235, 235, 235);
+    margin-right: 5px;
+    border-radius: 2px;
+    font-weight: bold;
+}
+
+.twitter-service-label {
+    background-color: rgb(29, 161, 242);
+    color: rgb(255, 255, 255);
+}
+
+.play-store-service-label {
+    background-color: rgb(237,59,59);
+    color: rgb(255, 255, 255);
+}
+
+.filter-options-list-item-selected {
+    font-weight: bold;
+}
+
+.filter-options-list-item:hover {
+    cursor: pointer;
+}
+
+.sort-by-selected {
+    font-weight: bold;
+}

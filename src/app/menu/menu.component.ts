@@ -35,6 +35,7 @@ export class MenuComponent implements OnInit {
 			}
 		});
 		this.sidebarToggle = document.getElementById("sidebar-toggle");
+		this.hamburger = document.getElementById("hamburger-menu");
 		this.sidebarToggle.addEventListener("click", () => this.toggleMenu(this));
 		this.hamburger.addEventListener("click", () => this.toggleMenu(this));
 	}

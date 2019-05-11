@@ -76,3 +76,10 @@ img.full-height {
 .button:hover {
     cursor: pointer;
 }
+
+a.none {
+}
+
+a.none:hover {
+    text-decoration: none;
+}

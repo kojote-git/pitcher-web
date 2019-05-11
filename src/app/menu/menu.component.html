@@ -10,11 +10,27 @@
 		</div>
 	</div>
 	<div class="menu-item menu-item-collapsed">
-		<div class="menu-item-text menu-item-text-collapsed">
-			Home
+		<div class="menu-item-text menu-item-text-collapsed" routerLink="/">
+			<a class="menu-link" routerLink="/">Home</a>
 		</div>
 		<div class="menu-item-icon">
-			<img src="assets/img/home.png" alt="" class="full-width full-height">
+			<a class="menu-link" routerLink="/">
+				<img src="assets/img/home.png" alt="" class="full-width full-height">
+			</a>
+		</div>
+	</div>
+	<div class="menu-item menu-item-collapsed">
+		<div class="menu-item-text menu-item-text-collapsed">
+			<a  class="menu-link"
+				[routerLink]="['/search']">
+				Search
+			</a>
+		</div>
+		<div class="menu-item-icon">
+			<a  class="menu-link"
+				[routerLink]="['/search']">
+				<img src="assets/img/search-icon-white.png" alt="" class="full-width full-height">
+			</a>
 		</div>
 	</div>
 	<div class="menu-item menu-item-collapsed">
@@ -36,18 +52,35 @@
 	<hr id="menu-hr"/>
 	<div class="menu-item menu-item-collapsed">
 		<div class="menu-item-text menu-item-text-collapsed">
-			Sign In
+			<a  class="menu-link"
+				[routerLink]="['/auth']"
+				[queryParams]='{form_tab: "sign-in"}'>
+				Sign In
+			</a>
 		</div>
 		<div class="menu-item-icon">
-			<img src="assets/img/sign-in-white.png" alt="" class="full-width full-height">
+			<a  class="menu-link"
+				[routerLink]="['/auth']"
+				[queryParams]='{form_tab: "sign-in"}'>
+				<img src="assets/img/sign-in-white.png" alt="" class="full-width full-height">
+			</a>
 		</div>
 	</div>
 	<div class="menu-item menu-item-collapsed">
 		<div class="menu-item-text menu-item-text-collapsed">
-			Sign Up
+			<a  class="menu-link"
+				[routerLink]="['/auth']"
+				[queryParams]='{form_tab: "sign-up"}'>
+				Sign Up
+			</a>
 		</div>
 		<div class="menu-item-icon">
-			<img src="assets/img/sign-up-white.png" alt="" class="full-width full-height">
+			<a  
+				class="menu-link"
+				[routerLink]="['/auth']"
+				[queryParams]='{form_tab: "sign-up"}'>
+				<img src="assets/img/sign-up-white.png" alt="" class="full-width full-height">
+			</a>
 		</div>
 	</div>
 </div>

@@ -8,6 +8,10 @@ import { AuthenticationService } from './services/auth/authentication.service';
 import { AuthenticationPageComponent } from './authentication-page/authentication-page.component';
 import { MenuComponent } from './menu/menu.component';
 import { SearchPageComponent } from './search-page/search-page.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { DemoSearchService } from './services/search/demo-search.service';
+
 
 @NgModule({
   declarations: [
@@ -19,9 +23,14 @@ import { SearchPageComponent } from './search-page/search-page.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [AuthenticationService],
+  providers: [
+    AuthenticationService,
+    { provide: "SearchService", useClass: DemoSearchService }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
