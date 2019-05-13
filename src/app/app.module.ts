@@ -11,6 +11,7 @@ import { SearchPageComponent } from './search-page/search-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DemoSearchService } from './services/search/demo-search.service';
+import { ResearchCreationComponent } from './research-creation/research-creation.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { DemoSearchService } from './services/search/demo-search.service';
     HeaderComponent,
     AuthenticationPageComponent,
     MenuComponent,
-    SearchPageComponent
+    SearchPageComponent,
+    ResearchCreationComponent
   ],
   imports: [
     BrowserModule,

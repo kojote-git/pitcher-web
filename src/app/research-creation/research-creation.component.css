@@ -1,0 +1,143 @@
+input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid rgb(180, 180, 180);
+    box-sizing: border-box;
+}
+
+#auto-update-options {
+    padding-left: 15px;
+    padding-top: 5px;
+}
+
+#description-text-area {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    resize: none;
+    height: 150px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+#submit-button {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: rgb(15, 179, 108);
+    padding: 15px 20px 15px 20px;
+    border-bottom: 3px solid rgb(15, 179, 108);
+    border-right: 3px solid rgb(15, 179, 108);
+    float: right;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.research-creation-header {
+    font-weight: bold;
+    font-size: 2em;
+    padding: 20px 15px 20px 15px;
+    color: rgb(15, 179, 108);
+    margin: 15px auto;
+    max-width: 704px;
+    border-bottom: 3px solid rgb(15, 179, 108);
+    border-right: 3px solid rgb(15, 179, 108);
+}
+
+.research-creation-body {
+    margin: 0 auto;
+    border: 3px solid rgb(15, 179, 108);
+    background-color: rgb(250, 250, 250);
+}
+
+.research-creation-body-row {
+    padding: 5px 20px 5px 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+.research-creation-header {
+    text-align: center;
+}
+
+.creation-section-header {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.service-buttons-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-basis: 140px;
+}
+
+.service-button {
+    width: 140px;
+    padding: 5px;
+    color: rgb(180, 180, 180);
+    font-weight: bold;
+    font-size: 0.95em;
+    border-bottom: 3px solid rgb(180, 180, 180);
+    border-right: 3px solid rgb(180, 180, 180);
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.service-button:hover {
+    cursor: pointer;
+}
+
+.suboption-label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.faded-hint {
+    color: rgb(120, 120, 120);
+    font-weight: normal;
+}
+
+.radio-button {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.radio-button:hover {
+    cursor: pointer;
+}
+
+.creation-section {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+@media (min-width: 992px) {
+    .service-button:nth-child(odd) {
+        margin-right: 10px;
+    }
+    
+    .service-button:nth-child(even) {
+        margin-left: 10px;
+    }
+    
+    .research-creation-body {
+        width: 732px;
+    }
+
+    .research-body-columns {
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+
+    .body-column {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+}
