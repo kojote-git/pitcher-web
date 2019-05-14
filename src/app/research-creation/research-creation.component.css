@@ -11,6 +11,14 @@ input[type="text"] {
     padding-top: 5px;
 }
 
+#keywords-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 #description-text-area {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -118,6 +126,23 @@ input[type="text"] {
     margin-bottom: 15px;
 }
 
+.keyword {
+    display: block;
+    padding: 3px;
+    color: white;
+    border-radius: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.keyword-remove {
+    font-weight: bold;
+}
+
+.keyword-remove:hover {
+    cursor: pointer;
+}
+
 @media (min-width: 992px) {
     .service-button:nth-child(odd) {
         margin-right: 10px;
@@ -139,5 +164,15 @@ input[type="text"] {
     .body-column {
         padding-right: 20px;
         padding-left: 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .research-creation-body {
+        max-width: 702px;
+        padding: 15px
+    }
+
+    .service-button {
     }
 }

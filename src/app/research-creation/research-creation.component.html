@@ -158,7 +158,7 @@
 							name="research-analyzer" 
 							id="research-analyzer-multilingual"
 						>
-						Multilingual <span class="faded-hint">(Understands 135 language)</span>
+						Multilingual <span class="faded-hint">(Understands 136 language)</span>
 					</label>
 				</div>
 			</div>
@@ -169,9 +169,10 @@
 				<div class="creation-section-options">
 					<input type="text" id="enter-keyword" placeholder="Enter keyword">
 					<div id="keywords-list">
-						<span class="keyword" *ngFor="let keyword of keywords">
+						<div class="keyword bgc-primary" *ngFor="let keyword of keywords">
 							<span class="keyword-value">{{keyword}}</span>
-						</span>
+							<span class="keyword-remove" (click)="removeKeyword(keyword)"> x </span>
+						</div>
 					</div>
 				</div>
 			</div>

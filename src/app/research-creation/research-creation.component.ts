@@ -19,6 +19,14 @@ export class ResearchCreationComponent implements OnInit {
 			});
 		document.getElementById("use-auto-update")
 			.addEventListener("change", this.toggleUseAutoUpdateOptions);
+		document.getElementById("enter-keyword")
+			.addEventListener("keydown", e => {
+				let target = (e.target as Element)
+				if (e.key === "Enter") {
+					this.addKeyword(target["value"]);
+					target["value"] = "";
+				}
+			});
 	}
 
 
@@ -52,6 +60,19 @@ export class ResearchCreationComponent implements OnInit {
 		} else {
 			document.getElementById("auto-update-options")
 				.classList.add("hidden");
+		}
+	}
+
+	removeKeyword(keyword: string) : void {
+		let i = this.keywords.indexOf(keyword);
+		if (i != -1) {
+			this.keywords.splice(i, 1);
+		}
+	}
+
+	private addKeyword(keyword: string) : void {
+		if (!this.keywords.includes(keyword)) {
+			this.keywords.push(keyword);
 		}
 	}
 }
