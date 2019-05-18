@@ -4,18 +4,17 @@
 		<div class="menu-item-text menu-item-text-collapsed">
 			Hide
 		</div>
-		<div class="menu-item-icon">
-			<img id="sidebar-toggle-icon" 
-				src="assets/img/arrow-right.png" alt="" class="full-width full-height">
+		<div class="menu-item-icon-wrapper">
+			<i id="sidebar-toggle-icon" class="menu-item-icon fas fa-arrow-right"></i>
 		</div>
 	</div>
 	<div class="menu-item menu-item-collapsed">
 		<div class="menu-item-text menu-item-text-collapsed" routerLink="/">
 			<a class="menu-link" routerLink="/">Home</a>
 		</div>
-		<div class="menu-item-icon">
+		<div class="menu-item-icon-wrapper">
 			<a class="menu-link" routerLink="/">
-				<img src="assets/img/home.png" alt="" class="full-width full-height">
+				<i class="menu-item-icon fas fa-home"></i>
 			</a>
 		</div>
 	</div>
@@ -26,10 +25,10 @@
 				Search
 			</a>
 		</div>
-		<div class="menu-item-icon">
+		<div class="menu-item-icon-wrapper">
 			<a  class="menu-link"
 				[routerLink]="['/search']">
-				<img src="assets/img/search-icon-white.png" alt="" class="full-width full-height">
+				<i class="menu-item-icon fas fa-search"></i>
 			</a>
 		</div>
 	</div>
@@ -37,16 +36,16 @@
 		<div class="menu-item-text menu-item-text-collapsed">
 			Trends
 		</div>
-		<div class="menu-item-icon">
-			<img src="assets/img/trends-icon-white.png" alt="" class="full-width full-height">
+		<div class="menu-item-icon-wrapper">
+			<i class="menu-item-icon fas fa-chart-line"></i>
 		</div>
 	</div>
 	<div class="menu-item menu-item-collapsed">
 		<div class="menu-item-text menu-item-text-collapsed">
 			About Pitcher
 		</div>
-		<div class="menu-item-icon">
-			<img src="assets/img/question-mark-white.png" alt="" class="full-width full-height">
+		<div class="menu-item-icon-wrapper">
+			<i class="menu-item-icon fas fa-question"></i>
 		</div>
 	</div>
 	<div *ngIf="!isAuthenticated()">
@@ -59,11 +58,11 @@
 					Sign In
 				</a>
 			</div>
-			<div class="menu-item-icon">
+			<div class="menu-item-icon-wrapper">
 				<a  class="menu-link"
 					[routerLink]="['/auth']"
 					[queryParams]='{form_tab: "sign-in"}'>
-					<img src="assets/img/sign-in-white.png" alt="" class="full-width full-height">
+					<i class="menu-item-icon fa fa-sign-in-alt"></i>
 				</a>
 			</div>
 		</div>
@@ -75,12 +74,12 @@
 					Sign Up
 				</a>
 			</div>
-			<div class="menu-item-icon">
+			<div class="menu-item-icon-wrapper">
 				<a  
 					class="menu-link"
 					[routerLink]="['/auth']"
 					[queryParams]='{form_tab: "sign-up"}'>
-					<img src="assets/img/sign-up-white.png" alt="" class="full-width full-height">
+					<i class="menu-item-icon fa fa-user-alt"></i>
 				</a>
 			</div>
 		</div>

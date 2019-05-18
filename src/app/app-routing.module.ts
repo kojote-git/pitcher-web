@@ -7,7 +7,7 @@ import { ResearchCreationComponent } from './research-creation/research-creation
 const routes: Routes = [
   { path: "auth", component: AuthenticationPageComponent },
   { path: "search", component: SearchPageComponent },
-  { path: "creation", component: ResearchCreationComponent }
+  { path: "creation", component: ResearchCreationComponent },
 ];
 
 @NgModule({

@@ -64,8 +64,9 @@ export class MenuComponent implements OnInit {
 			self.swapClasses(item, "menu-item-text-collapsed", "menu-item-text-expanded");
 		});
 		self.swapClasses(menu.element, "menu-collapsed", "menu-expanded");
-		document.getElementById("sidebar-toggle-icon")
-			.setAttribute("src", "assets/img/arrow-left.png");
+		let toggle = document.getElementById("sidebar-toggle-icon");
+		toggle.classList.remove("fa-arrow-right");
+		toggle.classList.add("fa-arrow-left");
 		self.swapClasses(document.getElementById("menu-sidebar-fixed-placeholder"),
 			"menu-sidebar-fixed-placeholder-collapsed",
 			"menu-sidebar-fixed-placeholder-expanded"
@@ -83,8 +84,9 @@ export class MenuComponent implements OnInit {
 			self.swapClasses(item, "menu-item-expanded", "menu-item-collapsed");
 		});
 		self.swapClasses(menu.element, "menu-expanded", "menu-collapsed");
-		document.getElementById("sidebar-toggle-icon")
-			.setAttribute("src", "assets/img/arrow-right.png");
+		let toggle = document.getElementById("sidebar-toggle-icon");
+		toggle.classList.remove("fa-arrow-left");
+		toggle.classList.add("fa-arrow-right");
 		self.swapClasses(document.getElementById("menu-sidebar-fixed-placeholder"),
 			"menu-sidebar-fixed-placeholder-expanded",
 			"menu-sidebar-fixed-placeholder-collapsed"
