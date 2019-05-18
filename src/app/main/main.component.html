@@ -1,0 +1,62 @@
+<div id="contents">
+  <section class="text-center">
+    <h1 class="text-center">
+      Wondered, what people say? 
+    </h1>
+    <h3 class="text-center">
+      We have an absolute <span class="c-primary">pitch</span> on opinions!
+    </h3>
+  
+    <div class="auth-button-container">
+      <div class="auth-button">
+          <a class="none"
+            [routerLink]="['/auth']"
+            [queryParams]='{form_tab: "sign-in"}'>
+            get an account
+          </a>
+      </div>
+    </div>
+  
+  </section>
+  <section>
+    <div class="section-title bordered">
+      <a class="none" id="info">What is Pitcher?</a>
+    </div>
+    <div id="what-is-labels">
+      <div class="what-is-label">
+        <h3 class="what-is-label-title">Check social media</h3>
+        <div class="what-is-label-text">
+            We will monitor social media, 
+            to collect all thoughts about 
+            you/your brand/your research. 
+            You can be sure, that we wont miss any single opinion.
+        </div>
+      </div>
+      <div class="what-is-label">
+        <h3 class="what-is-label-title">Share with others</h3>
+        <div class="what-is-label-text">
+            You can make public research, and other users will be allowed to watch, and like.
+            You also can look, maybe somebody already got, what are you came here for?        
+        </div>
+      </div>
+      <div class="what-is-label">
+        <h3 class="what-is-label-title">Be private</h3>
+        <div class="what-is-label-text">
+            Dont want other people know, what you have investigated?
+            We will keep your secrets.
+            Just make private research.
+        </div>
+      </div>
+    </div>
+  </section>
+  <div id="footer" class="section-title">
+    So, what are you waiting for?
+    <div class="auth-button">
+        <a class="none"
+          [routerLink]="['/auth']"
+          [queryParams]='{form_tab: "sign-up"}'>
+          join Pithcer now
+        </a>
+    </div>
+  </div>
+</div>

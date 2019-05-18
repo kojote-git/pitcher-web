@@ -9,9 +9,9 @@
 		</div>
 	</div>
 	<div class="menu-item menu-item-collapsed">
-		<div class="menu-item-text menu-item-text-collapsed" routerLink="/">
-			<a class="menu-link" routerLink="/">Home</a>
-		</div>
+		<a class="menu-link menu-item-text menu-item-text-collapsed" routerLink="/">
+			Home
+		</a>
 		<div class="menu-item-icon-wrapper">
 			<a class="menu-link" routerLink="/">
 				<i class="menu-item-icon fas fa-home"></i>
@@ -19,12 +19,10 @@
 		</div>
 	</div>
 	<div class="menu-item menu-item-collapsed">
-		<div class="menu-item-text menu-item-text-collapsed">
-			<a  class="menu-link"
-				[routerLink]="['/search']">
-				Search
-			</a>
-		</div>
+		<a  class="menu-link menu-item-text menu-item-text-collapsed"
+			[routerLink]="['/search']">
+			Search
+		</a>
 		<div class="menu-item-icon-wrapper">
 			<a  class="menu-link"
 				[routerLink]="['/search']">
@@ -41,23 +39,23 @@
 		</div>
 	</div>
 	<div class="menu-item menu-item-collapsed">
-		<div class="menu-item-text menu-item-text-collapsed">
+		<a class="menu-link menu-item-text menu-item-text-collapsed"
+			href="/#info">
 			About Pitcher
-		</div>
+		</a>
 		<div class="menu-item-icon-wrapper">
-			<i class="menu-item-icon fas fa-question"></i>
+			<a class="menu-link" href="/#info">
+				<i class="menu-item-icon fas fa-question"></i>
+			</a>
 		</div>
 	</div>
 	<div *ngIf="!isAuthenticated()">
-		<hr id="menu-hr"/>
 		<div class="menu-item menu-item-collapsed">
-			<div class="menu-item-text menu-item-text-collapsed">
-				<a  class="menu-link"
-					[routerLink]="['/auth']"
-					[queryParams]='{form_tab: "sign-in"}'>
-					Sign In
-				</a>
-			</div>
+			<a 	class="menu-link menu-item-text menu-item-text-collapsed"
+				[routerLink]="['/auth']"
+				[queryParams]='{form_tab: "sign-in"}'>
+				Sign In
+			</a>
 			<div class="menu-item-icon-wrapper">
 				<a  class="menu-link"
 					[routerLink]="['/auth']"
@@ -67,13 +65,11 @@
 			</div>
 		</div>
 		<div class="menu-item menu-item-collapsed">
-			<div class="menu-item-text menu-item-text-collapsed">
-				<a  class="menu-link"
-					[routerLink]="['/auth']"
-					[queryParams]='{form_tab: "sign-up"}'>
-					Sign Up
-				</a>
-			</div>
+			<a class="menu-link menu-item-text menu-item-text-collapsed"
+				[routerLink]="['/auth']"
+				[queryParams]='{form_tab: "sign-up"}'>
+				Sign Up
+			</a>
 			<div class="menu-item-icon-wrapper">
 				<a  
 					class="menu-link"

@@ -13,5 +13,6 @@ export interface Filters {
 
 export interface SearchService {
     findAll() : Observable<Object[]>;
-    filter(filters: Filters) : Observable<Object[]>;
+	filter(filters: Filters) : Observable<Object[]>;
+	findById(id: any) : Observable<Object>;
 }

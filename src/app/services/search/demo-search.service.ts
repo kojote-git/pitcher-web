@@ -4,22 +4,34 @@ import { Observable, of } from 'rxjs';
 declare var Date: any;
 
 export class DemoSearchService implements SearchService {
+    findById(id: any): Observable<Object> {
+        let temp = this.researches.filter(research => research.id === id);
+        if (temp.length === 0) {
+            return of(null);
+        }
+        return of(temp[0]);
+    }
+
     private researches =  [{
+            id: 1,
             name: "elections in Ukraine",
             description: "help people to find relevant information about elections and candidates",
             date: "18/02/2019",
             services: ["Twitter"]
         }, {
+            id: 2,
             name: "The Elders Scrolls: Blades",
             description: "trying find out opinions of people on this game",
             date: "30/04/2019",
             services: ["Twitter", "Google Play Store"]
         }, {
+            id: 3,
             name: "Pitcher brand",
             description: "let's find out what people think about pitcher and their products",
             date: "02/04/2019",
             services: ["Twitter"]
         }, {
+            id: 4,
             name: "Samsung brand",
             description: "while some people are talking that Samsung loses their position on market " +
                 "I'm trying to figure out whether it's true or not",

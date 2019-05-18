@@ -11,9 +11,13 @@
     }
 }
 
-#content {
-    max-width: 1200px;
-    width: 90%;
+#content-wrapper {
+    width: 100%;
+}
+
+.content {
     margin: 15px auto;
     padding: 15px;
+    max-width: 1200px;
+    width: 90%;
 }

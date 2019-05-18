@@ -1,114 +1,116 @@
-<div id="authentication-page-contents">
-    <div id="auth-form" action="">
-        <div id="auth-form-tab-controls">
-            <div class="auth-form-tab-control auth-form-tab-control-active" data-tab-id-binding="sign-in">
-                Sign In
-            </div>
-            <div class="auth-form-tab-control" data-tab-id-binding="sign-up">
-                Sign Up
-            </div>
-        </div>
-        <div data-tab-id="sign-in" class="auth-form-body" data-active-tab>
-            <div class="auth-form-input-container">
-                <label class="auth-form-label">email</label>
-                <input [(ngModel)]="signIn.user" placeholder="email" class="auth-form-input">
-            </div>
-            <div class="auth-form-input-container">
-                <label class="auth-form-label">password</label>
-                <input class="auth-form-input" 
-                    type="password"
-                    [(ngModel)]="signIn.user_password"
-                    placeholder="password">
-            </div>
-            <div class="error-message-container">
-                <span class="error-message">{{signInErrorMessage}}</span>
-            </div>
-            <div class="auth-form-input-container submit-button-container">
-                <div class="submit-button" (click)="submitSignIn()">
-                    Submit
+<div class="content">
+    <div id="authentication-page-contents">
+        <div id="auth-form" action="">
+            <div id="auth-form-tab-controls">
+                <div class="auth-form-tab-control auth-form-tab-control-active" data-tab-id-binding="sign-in">
+                    Sign In
+                </div>
+                <div class="auth-form-tab-control" data-tab-id-binding="sign-up">
+                    Sign Up
                 </div>
             </div>
-            <div class="auth-form-separator">or connect with</div>
-            <div class="auth-via-media-container auth-via-google">
-                <div class="auth-via-media-icon">
-                    <img src="assets/img/google_icon.svg" class="full-width full-heigh" alt="">
+            <div data-tab-id="sign-in" class="auth-form-body" data-active-tab>
+                <div class="auth-form-input-container">
+                    <label class="auth-form-label">email</label>
+                    <input [(ngModel)]="signIn.user" placeholder="email" class="auth-form-input">
                 </div>
-                <div class="auth-via-media-text">Google</div>
-            </div>
-            <div class="auth-via-media-container auth-via-facebook">
-                <div class="auth-via-media-icon">
-                    <img src="assets/img/facebook-icon.png" class="full-width full-heigh" alt="">
+                <div class="auth-form-input-container">
+                    <label class="auth-form-label">password</label>
+                    <input class="auth-form-input" 
+                        type="password"
+                        [(ngModel)]="signIn.user_password"
+                        placeholder="password">
                 </div>
-                <div class="auth-via-media-text">Facebook</div>
-            </div>
-        </div>
-        <div data-tab-id="sign-up" class="auth-form-body hidden">
-            <div class="auth-form-input-container">
-                <label class="auth-form-label">email</label>
-                <input type="text" class="auth-form-input"
-                    [(ngModel)]="signUp.email"
-                    placeholder="email">
-            </div>
-            <div class="auth-form-input-container">
-                <label class="auth-form-label">username</label>
-                <input type="text" class="auth-form-input"
-                    [(ngModel)]="signUp.username"
-                    placeholder="username">
-            </div>
-            <div class="auth-form-input-container">
-                <label class="auth-form-label">full name</label>
-                <input type="text" class="auth-form-input"
-                    [(ngModel)]="signUp.fullname"
-                    placeholder="full name">
-            </div>
-            <div class="auth-form-input-container">
-                <div id="auth-form-company-checkboxes">
-                    <div class="auth-form-company-checkbox-container">
-                        <input id="represents-company" 
-                            [(ngModel)]="signUp.isCompany"
-                            type="checkbox">
-                        <label for="represents-company">I represent a company</label>
+                <div class="error-message-container">
+                    <span class="error-message">{{signInErrorMessage}}</span>
+                </div>
+                <div class="auth-form-input-container submit-button-container">
+                    <div class="submit-button" (click)="submitSignIn()">
+                        Submit
                     </div>
                 </div>
-                <input id="company-name" type="text" class="auth-form-input"
-                    [(ngModel)]="signUp.company_name"
-                    placeholder="company" disabled="true">
+                <div class="auth-form-separator">or connect with</div>
+                <div class="auth-via-media-container auth-via-google">
+                    <div class="auth-via-media-icon">
+                        <img src="assets/img/google_icon.svg" class="full-width full-heigh" alt="">
+                    </div>
+                    <div class="auth-via-media-text">Google</div>
+                </div>
+                <div class="auth-via-media-container auth-via-facebook">
+                    <div class="auth-via-media-icon">
+                        <img src="assets/img/facebook-icon.png" class="full-width full-heigh" alt="">
+                    </div>
+                    <div class="auth-via-media-text">Facebook</div>
+                </div>
             </div>
-            <div class="auth-form-input-container">
-                <label class="auth-form-label">password</label>
-                <input type="password" class="auth-form-input" 
-                    [(ngModel)]="signUp.password"
-                    placeholder="password">
-            </div>
-            <div class="auth-form-input-container">
-                <label class="auth-form-label">confirm password</label>
-                <input type="password" class="auth-form-input" 
-                    [(ngModel)]="signUp.reenterPassword"
-                    placeholder="password">
-            </div>
-            <div class="error-message-container">
-                <span class="error-message">{{signUpErrorMessage}}</span>
-            </div>
-            <div class="auth-form-input-container submit-button-container">
-                <div class="submit-button" (click)="submitSignUp()">
-                    Submit
+            <div data-tab-id="sign-up" class="auth-form-body hidden">
+                <div class="auth-form-input-container">
+                    <label class="auth-form-label">email</label>
+                    <input type="text" class="auth-form-input"
+                        [(ngModel)]="signUp.email"
+                        placeholder="email">
+                </div>
+                <div class="auth-form-input-container">
+                    <label class="auth-form-label">username</label>
+                    <input type="text" class="auth-form-input"
+                        [(ngModel)]="signUp.username"
+                        placeholder="username">
+                </div>
+                <div class="auth-form-input-container">
+                    <label class="auth-form-label">full name</label>
+                    <input type="text" class="auth-form-input"
+                        [(ngModel)]="signUp.fullname"
+                        placeholder="full name">
+                </div>
+                <div class="auth-form-input-container">
+                    <div id="auth-form-company-checkboxes">
+                        <div class="auth-form-company-checkbox-container">
+                            <input id="represents-company" 
+                                [(ngModel)]="signUp.isCompany"
+                                type="checkbox">
+                            <label for="represents-company">I represent a company</label>
+                        </div>
+                    </div>
+                    <input id="company-name" type="text" class="auth-form-input"
+                        [(ngModel)]="signUp.company_name"
+                        placeholder="company" disabled="true">
+                </div>
+                <div class="auth-form-input-container">
+                    <label class="auth-form-label">password</label>
+                    <input type="password" class="auth-form-input" 
+                        [(ngModel)]="signUp.password"
+                        placeholder="password">
+                </div>
+                <div class="auth-form-input-container">
+                    <label class="auth-form-label">confirm password</label>
+                    <input type="password" class="auth-form-input" 
+                        [(ngModel)]="signUp.reenterPassword"
+                        placeholder="password">
+                </div>
+                <div class="error-message-container">
+                    <span class="error-message">{{signUpErrorMessage}}</span>
+                </div>
+                <div class="auth-form-input-container submit-button-container">
+                    <div class="submit-button" (click)="submitSignUp()">
+                        Submit
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div id="authentication-hints">
-        <h3 class="text-center">Why have an account?</h3>
-        <ul id="authentication-hints-list">
-            <li class="authentication-hint">
-                With the account you can explore media and opinions
-                of people by creating and customizing your own researches 
-            </li>
-            <li class="authentication hint">
-                Choose your subscription type
-            </li>
-            <li>
-                And much more...
-            </li>
-        </ul>
+        <div id="authentication-hints">
+            <h3 class="text-center">Why have an account?</h3>
+            <ul id="authentication-hints-list">
+                <li class="authentication-hint">
+                    With the account you can explore media and opinions
+                    of people by creating and customizing your own researches 
+                </li>
+                <li class="authentication hint">
+                    Choose your subscription type
+                </li>
+                <li>
+                    And much more...
+                </li>
+            </ul>
+        </div>
     </div>
 </div>

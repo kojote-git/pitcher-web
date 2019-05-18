@@ -1,197 +1,199 @@
-<div>
-	<div class="research-creation-header bgc-dark">
-		Create your own research
+<div class="content">
+	<div>
+		<div class="research-creation-header bgc-dark">
+			Create your own research
+		</div>
 	</div>
-</div>
-<div class="research-creation-body">
-	<div class="research-body-columns">
-		<div class="body-column">
-			<div class="creation-section">
-				<div class="creation-section-header">
-					Give it a name
-				</div>
-				<div class="creation-section-options">
-					<input type="text" placeholder="Choose wisely">
-				</div>
-			</div>
-			<div class="creation-section">
-				<div class="creation-section-header">
-					Choose services to monitor
-				</div>
-				<div class="creation-section-options">
-					<div class="service-buttons-container">
-						<label class="service-button bgc-dark service-name" for="twitter-service">
-							<input type="checkbox" id="twitter-service">
-							Twitter
-						</label>
-						<label class="service-button bgc-dark service-name" for="google-trends-service">
-							<input type="checkbox" id="google-trends-service">
-								Google Trends
-						</label>
-						<label class="service-button bgc-dark service-name" for="google-play-service">
-							<input type="checkbox" id="google-play-service">
-							Google Play
-						</label>
-						<label class="service-button bgc-dark service-name" for="newspaper-service">
-							<input type="checkbox" id="newspaper-service">
-							Newspapers
-						</label>
+	<div class="research-creation-body">
+		<div class="research-body-columns">
+			<div class="body-column">
+				<div class="creation-section">
+					<div class="creation-section-header">
+						Give it a name
+					</div>
+					<div class="creation-section-options">
+						<input type="text" placeholder="Choose wisely">
 					</div>
 				</div>
-			</div>
-			<div class="creation-section hidden" id="google-play-creation-section">
-				<div class="creation-section-header">
-					You need to link google play app
-				</div>
-				<div class="creation-section-options">
-					<div class="creation-section-suboptions">
-						<label for="google-play-app-dev-name-option" class="suboption radio-button">
-							<input type="radio" 
-								name="google-play-suboption" 
-								checked="true"
-								id="google-play-app-dev-name-option">
-							Use app or developer name
-						</label>
-						<label for="google-play-id-option" class="suboption radio-button">
-							<input type="radio" 
-								name="google-play-suboption" 
-								id="google-play-id-option">
-							Use google play app ID
-						</label>
+				<div class="creation-section">
+					<div class="creation-section-header">
+						Choose services to monitor
 					</div>
-					<div class="creation-section-suboptions-bodies">
-						<div class="suboption-body"
-							data-google-play-suboption="google-play-app-dev-name-option">
-							<div>
-								<label for="google-play-app-name" class="suboption-label">
-									Google Play app name
-								</label>
-								<input type="text" placeholder='Like "WhatsApp Messenger"'>
-							</div>
-							<div>
-								<label for="google-play-dev-name" class="suboption-label">
-									Google Play dev name
-								</label>
-								<input type="text" placeholder='"WhatsApp Inc."'>
-							</div>
-						</div>
-						<div class="suboption-body hidden" 
-							data-google-play-suboption="google-play-id-option">
-							<label for="google-play-id" class="suboption-label">
-								Google Play app ID
+					<div class="creation-section-options">
+						<div class="service-buttons-container">
+							<label class="service-button bgc-dark service-name" for="twitter-service">
+								<input type="checkbox" id="twitter-service">
+								Twitter
 							</label>
-							<input type="text" placeholder='com.dev.app as usual'>
+							<label class="service-button bgc-dark service-name" for="google-trends-service">
+								<input type="checkbox" id="google-trends-service">
+									Google Trends
+							</label>
+							<label class="service-button bgc-dark service-name" for="google-play-service">
+								<input type="checkbox" id="google-play-service">
+								Google Play
+							</label>
+							<label class="service-button bgc-dark service-name" for="newspaper-service">
+								<input type="checkbox" id="newspaper-service">
+								Newspapers
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="creation-section hidden" id="google-play-creation-section">
+					<div class="creation-section-header">
+						You need to link google play app
+					</div>
+					<div class="creation-section-options">
+						<div class="creation-section-suboptions">
+							<label for="google-play-app-dev-name-option" class="suboption radio-button">
+								<input type="radio" 
+									name="google-play-suboption" 
+									checked="true"
+									id="google-play-app-dev-name-option">
+								Use app or developer name
+							</label>
+							<label for="google-play-id-option" class="suboption radio-button">
+								<input type="radio" 
+									name="google-play-suboption" 
+									id="google-play-id-option">
+								Use google play app ID
+							</label>
+						</div>
+						<div class="creation-section-suboptions-bodies">
+							<div class="suboption-body"
+								data-google-play-suboption="google-play-app-dev-name-option">
+								<div>
+									<label for="google-play-app-name" class="suboption-label">
+										Google Play app name
+									</label>
+									<input type="text" placeholder='Like "WhatsApp Messenger"'>
+								</div>
+								<div>
+									<label for="google-play-dev-name" class="suboption-label">
+										Google Play dev name
+									</label>
+									<input type="text" placeholder='"WhatsApp Inc."'>
+								</div>
+							</div>
+							<div class="suboption-body hidden" 
+								data-google-play-suboption="google-play-id-option">
+								<label for="google-play-id" class="suboption-label">
+									Google Play app ID
+								</label>
+								<input type="text" placeholder='com.dev.app as usual'>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="creation-section">
+					<div class="creation-section-header">
+						Auto update
+					</div>
+					<div class="creation-section-options">
+						<label for="use-auto-update">
+							<input type="checkbox" id="use-auto-update">
+							Use auto update
+						</label>
+						<div id="auto-update-options" class="hidden">
+							<label for="auto-update-week" class="radio-button">
+								<input type="radio" 
+									name="auto-update-option"
+									checked="true"
+									id="auto-update-week">
+									Once a week
+							</label>
+							<label for="auto-update-days" class="radio-button">
+								<input type="radio"
+									name="auto-update-option"
+									id="auto-update-days"
+								>
+								Once 3 days
+							</label>
+							<label for="auto-update-day" class="radio-button">
+								<input type="radio"
+									name="auto-update-option"
+									id="auto-update-day"
+								>
+								Once a day
+							</label>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="creation-section">
-				<div class="creation-section-header">
-					Auto update
-				</div>
-				<div class="creation-section-options">
-					<label for="use-auto-update">
-						<input type="checkbox" id="use-auto-update">
-						Use auto update
-					</label>
-					<div id="auto-update-options" class="hidden">
-						<label for="auto-update-week" class="radio-button">
+			<div class="body-column">
+				<div class="creation-section">
+					<div class="creation-section-header">
+						Choose research type
+					</div>
+					<div class="creation-section-options radio-buttons-group">
+						<label for="research-type-public" class="radio-button">
 							<input type="radio" 
-								name="auto-update-option"
-								checked="true"
-								id="auto-update-week">
-								Once a week
+								name="research-type"
+								id="research-type-public">
+								Public
 						</label>
-						<label for="auto-update-days" class="radio-button">
+						<label for="research-type-private" class="radio-button">
 							<input type="radio"
-								name="auto-update-option"
-								id="auto-update-days"
+								name="research-type"
+								id="research-type-private"
 							>
-							Once 3 days
-						</label>
-						<label for="auto-update-day" class="radio-button">
-							<input type="radio"
-								name="auto-update-option"
-								id="auto-update-day"
-							>
-							Once a day
+							Private
 						</label>
 					</div>
 				</div>
-			</div>
-		</div>
-		<div class="body-column">
-			<div class="creation-section">
-				<div class="creation-section-header">
-					Choose research type
+				<div class="creation-section">
+					<div class="creation-section-header">
+						Choose an analyzer
+					</div>
+					<div class="creation-section-options radio-buttons-group">
+						<label for="research-analyzer-english" class="radio-button">
+							<input type="radio"
+								name="research-analyzer"
+								id="research-analyzer-english"
+							>
+							English <span class="faded-hint">(More precise )</span>
+						</label>
+						<label for="research-analyzer-multilingual" class="radio-button">
+							<input type="radio" 
+								name="research-analyzer" 
+								id="research-analyzer-multilingual"
+							>
+							Multilingual <span class="faded-hint">(Understands 136 language)</span>
+						</label>
+					</div>
 				</div>
-				<div class="creation-section-options radio-buttons-group">
-					<label for="research-type-public" class="radio-button">
-						<input type="radio" 
-							name="research-type"
-							id="research-type-public">
-							Public
-					</label>
-					<label for="research-type-private" class="radio-button">
-						<input type="radio"
-							name="research-type"
-							id="research-type-private"
-						>
-						Private
-					</label>
-				</div>
-			</div>
-			<div class="creation-section">
-				<div class="creation-section-header">
-					Choose an analyzer
-				</div>
-				<div class="creation-section-options radio-buttons-group">
-					<label for="research-analyzer-english" class="radio-button">
-						<input type="radio"
-							name="research-analyzer"
-							id="research-analyzer-english"
-						>
-						English <span class="faded-hint">(More precise )</span>
-					</label>
-					<label for="research-analyzer-multilingual" class="radio-button">
-						<input type="radio" 
-							name="research-analyzer" 
-							id="research-analyzer-multilingual"
-						>
-						Multilingual <span class="faded-hint">(Understands 136 language)</span>
-					</label>
-				</div>
-			</div>
-			<div class="creation-section">
-				<div class="creation-section-header">
-					Define keywords
-				</div>
-				<div class="creation-section-options">
-					<input type="text" id="enter-keyword" placeholder="Enter keyword">
-					<div id="keywords-list">
-						<div class="keyword bgc-primary" *ngFor="let keyword of keywords">
-							<span class="keyword-value">{{keyword}}</span>
-							<span class="keyword-remove" (click)="removeKeyword(keyword)"> x </span>
+				<div class="creation-section">
+					<div class="creation-section-header">
+						Define keywords
+					</div>
+					<div class="creation-section-options">
+						<input type="text" id="enter-keyword" placeholder="Enter keyword">
+						<div id="keywords-list">
+							<div class="keyword bgc-primary" *ngFor="let keyword of keywords">
+								<span class="keyword-value">{{keyword}}</span>
+								<span class="keyword-remove" (click)="removeKeyword(keyword)"> x </span>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="research-creation-body-row">
-		<div class="creation-section">
-			<div class="creation-section-header">
-				Add a description <span class="faded-hint">(optional)</span>
-			</div>
-			<textarea id="description-text-area">
+		<div class="research-creation-body-row">
+			<div class="creation-section">
+				<div class="creation-section-header">
+					Add a description <span class="faded-hint">(optional)</span>
+				</div>
+				<textarea id="description-text-area">
 
-			</textarea>
+				</textarea>
+			</div>
 		</div>
-	</div>
-	<div class="research-creation-body-row">
-		<div id="submit-button" class="bgc-dark">
-			Sumbit
+		<div class="research-creation-body-row">
+			<div id="submit-button" class="bgc-dark">
+				Sumbit
+			</div>
+			<div class="clearfix"></div>
 		</div>
-		<div class="clearfix"></div>
 	</div>
 </div>

@@ -1,13 +1,12 @@
 body {
     margin: 0;
     padding: 0;
-    height: 1000px;
     font-family: "Helvetica",sans-serif;
     line-height: 1.5em;
     color: rgb(45, 45, 45);
 }
 
-#contents {
+html {
     height: 100%;
 }
 
@@ -78,8 +77,11 @@ img.full-height {
 }
 
 a.none {
+    color: inherit;
+    text-decoration: none;
 }
 
 a.none:hover {
+    color: inherit;
     text-decoration: none;
 }

@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DemoSearchService } from './services/search/demo-search.service';
 import { ResearchCreationComponent } from './research-creation/research-creation.component';
+import { MainComponent } from './main/main.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ResearchCreationComponent } from './research-creation/research-creation
     AuthenticationPageComponent,
     MenuComponent,
     SearchPageComponent,
-    ResearchCreationComponent
+    ResearchCreationComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
