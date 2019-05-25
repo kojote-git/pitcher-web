@@ -18,6 +18,18 @@
 			</a>
 		</div>
 	</div>
+	<div *ngIf="isAuthenticated()" class="menu-item menu-item-collapsed">
+		<a  class="menu-link menu-item-text menu-item-text-collapsed"
+			[routerLink]="['/creation']">
+			Create
+		</a>
+		<div class="menu-item-icon-wrapper">
+			<a  class="menu-link"
+				[routerLink]="['/creation']">
+				<i class="menu-item-icon fas fa-plus"></i>
+			</a>
+		</div>
+	</div>
 	<div class="menu-item menu-item-collapsed">
 		<a  class="menu-link menu-item-text menu-item-text-collapsed"
 			[routerLink]="['/search']">
@@ -36,17 +48,6 @@
 		</div>
 		<div class="menu-item-icon-wrapper">
 			<i class="menu-item-icon fas fa-chart-line"></i>
-		</div>
-	</div>
-	<div class="menu-item menu-item-collapsed">
-		<a class="menu-link menu-item-text menu-item-text-collapsed"
-			href="/#info">
-			About Pitcher
-		</a>
-		<div class="menu-item-icon-wrapper">
-			<a class="menu-link" href="/#info">
-				<i class="menu-item-icon fas fa-question"></i>
-			</a>
 		</div>
 	</div>
 	<div *ngIf="!isAuthenticated()">
