@@ -161,11 +161,7 @@
     color: rgb(255, 255, 255);
 }
 
-.filter-options-list-item-selected {
-    font-weight: bold;
-}
-
-.filter-options-list-item:hover {
+.filter-options-list-item label {
     cursor: pointer;
 }
 

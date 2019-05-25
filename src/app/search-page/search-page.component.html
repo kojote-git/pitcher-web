@@ -57,36 +57,78 @@
 					<div class="filter-name">SORT BY</div>
 					<div class="filter-options">
 						<ul class="filter-options-list" 
-							id="filter-sort-by"
-							data-selection-list-id="filter-options-sort-by">
-							<li class="filter-options-list-item"
-								data-selection-list-id="filter-options-sort-by"
-								data-selection-list-option="date">
-								date created
+							id="filter-sort-by">
+							<li class="filter-options-list-item">
+								<label for="filter-options-sort-by-creation">
+									<input type="radio" name="filter-options-sort-by" 
+										id="filter-options-sort-by-creation"
+										value="creation">
+									created
+								</label>
 							</li>
-							<li class="filter-options-list-item"
-								data-selection-list-id="filter-options-sort-by"
-								data-selection-list-option="last_update">
-								last update
+							<li class="filter-options-list-item">
+								<label for="filter-options-sort-by-last-update">
+									<input type="radio" name="filter-options-sort-by"
+										id="filter-options-sort-by-last-update"
+										value="last_update"
+									>
+									last update
+								</label>
 							</li>
-							<li class="filter-options-list-item"
-								data-selection-list-id="filter-options-sort-by"
-								data-selection-list-option="views">
-								views
+							<li class="filter-options-list-item">
+								<label for="filter-options-sort-by-views">
+									<input type="radio" name="filter-options-sort-by"
+										id="filter-options-sort-by-views"
+										value="views"
+									>
+									views
+								</label>
 							</li>
-							<li class="filter-options-list-item"
-								data-selection-list-id="filter-options-sort-by"
-								data-selection-list-option="popularity">
-								popularity
+							<li class="filter-options-list-item">
+								<label for="filter-options-sort-by-popularity">
+									<input type="radio" name="filter-options-sort-by"
+										id="filter-options-sort-by-popularity"
+										value="popularity"
+									>
+									popularity
+								</label>
 							</li>
-							<li class="filter-options-list-item"
-								data-selection-list-id="filter-options-sort-by"
-								data-selection-list-option="subscribers">
-								subscribers
+							<li class="filter-options-list-item">
+								<label for="filter-options-sort-by-subscribers">
+									<input type="radio" name="filter-options-sort-by"
+										id="filter-options-sort-by-subscribers"
+										value="subscribers"
+									>
+									subscribers
+								</label>
 							</li>
 						</ul>
 					</div>
 				</div>
+				<div class="filter-column">
+						<div class="filter-name">ANALYZER</div>
+						<div class="filter-options">
+							<ul class="filter-options-list" 
+								id="filter-options-analyzer">
+								<li class="filter-options-list-item">
+									<label for="filter-options-analyzer-polyglot">
+										<input type="radio" name="filter-options-analyser" 
+											id="filter-options-analyzer-polyglot"
+											value="polyglot">
+										polyglot
+									</label>
+								</li>
+								<li class="filter-options-list-item">
+									<label for="filter-options-analyzer-vader">
+										<input type="radio" name="filter-options-analyser" 
+											id="filter-options-analyzer-vader"
+											value="vader">
+										vader
+									</label>
+								</li>
+							</ul>
+						</div>
+					</div>
 			</div>
 			<div>
 				<div id="apply-filters" class="button" (click)="applyFilters()">Apply Filters</div>

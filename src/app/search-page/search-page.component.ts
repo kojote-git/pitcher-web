@@ -23,7 +23,6 @@ export class SearchPageComponent implements OnInit {
 			filters.classList.toggle("filters-collapsed");
 			filters.classList.toggle("filters-expanded");
 		});
-		createSelectionList("filter-options-sort-by", "sort-by-selected");
 	}
 
 	public applyFilters() {
@@ -31,30 +30,23 @@ export class SearchPageComponent implements OnInit {
             .subscribe(researches => this.researches = researches);
     }
 
-	public classForService(service: string): string {
-		switch (service) {
-            case "Twitter":
-                return "twitter-service-label";
-            case "Google Play Store":
-                return "play-store-service-label";
-            default:
-                return ""
-        }
-	}
-
 	private gatherFilters() : Filters {
         let res: Filters = {};
         let date = this.getCreationInterval();
         let services = this.getChoosenServices();
         let sortBy = this.getSortParameter();
+        let analyser = this.getAnalyser();
         if (Object.keys(date).length != 0) {
             res.date = date;
         }
         if (services.length != 0) {
             res.services = services;
         }
-        if (sortBy != null && sortBy != "") {
+        if (sortBy) {
             res.sortBy = sortBy;
+        }
+        if (analyser) {
+            res.analyser = analyser;
         }
         return res;
     }
@@ -84,7 +76,21 @@ export class SearchPageComponent implements OnInit {
         return res;
     }
 
-    private getSortParameter(): string{
-        return document.getElementById("filter-sort-by").getAttribute("data-selection-list-selected");
+    private getSortParameter(): string {
+        return this.queryOption("filter-options-sort-by");
+    }
+
+    private getAnalyser() : string {
+        return this.queryOption("filter-options-analyser");
+    }
+
+    private queryOption(name: string) {
+        let res = document.querySelectorAll(`input[name='${name}'`);
+        for (let i = 0; i < res.length; i++) {
+            if (res[i]["checked"]) {
+                return res[i]["value"];
+            }
+        }
+        return "";
     }
 }
