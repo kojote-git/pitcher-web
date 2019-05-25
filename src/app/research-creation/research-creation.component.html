@@ -12,7 +12,7 @@
 						Give it a name
 					</div>
 					<div class="creation-section-options">
-						<input type="text" placeholder="Choose wisely">
+						<input type="text" value="" placeholder="Choose wisely" [(ngModel)]="topic">
 					</div>
 				</div>
 				<div class="creation-section">
@@ -22,19 +22,19 @@
 					<div class="creation-section-options">
 						<div class="service-buttons-container">
 							<label class="service-button bgc-dark service-name" for="twitter-service">
-								<input type="checkbox" id="twitter-service">
+								<input type="checkbox" id="twitter-service" value="twitter" data-service>
 								Twitter
 							</label>
 							<label class="service-button bgc-dark service-name" for="google-trends-service">
-								<input type="checkbox" id="google-trends-service">
-									Google Trends
+								<input type="checkbox" id="google-trends-service" value="search" data-service>
+								Google Trends
 							</label>
 							<label class="service-button bgc-dark service-name" for="google-play-service">
-								<input type="checkbox" id="google-play-service">
+								<input type="checkbox" id="google-play-service" value="play_store" data-service>
 								Google Play
 							</label>
 							<label class="service-button bgc-dark service-name" for="newspaper-service">
-								<input type="checkbox" id="newspaper-service">
+								<input type="checkbox" id="newspaper-service" value="news" data-service>
 								Newspapers
 							</label>
 						</div>
@@ -50,12 +50,14 @@
 								<input type="radio" 
 									name="google-play-suboption" 
 									checked="true"
+									value="play-name"
 									id="google-play-app-dev-name-option">
 								Use app or developer name
 							</label>
 							<label for="google-play-id-option" class="suboption radio-button">
 								<input type="radio" 
-									name="google-play-suboption" 
+									name="google-play-suboption"
+									value="play-id"
 									id="google-play-id-option">
 								Use google play app ID
 							</label>
@@ -67,13 +69,13 @@
 									<label for="google-play-app-name" class="suboption-label">
 										Google Play app name
 									</label>
-									<input type="text" placeholder='Like "WhatsApp Messenger"'>
+									<input type="text" placeholder='Like "WhatsApp Messenger"' [(ngModel)]="appName">
 								</div>
 								<div>
 									<label for="google-play-dev-name" class="suboption-label">
 										Google Play dev name
 									</label>
-									<input type="text" placeholder='"WhatsApp Inc."'>
+									<input type="text" placeholder='"WhatsApp Inc."' [(ngModel)]="appDev">
 								</div>
 							</div>
 							<div class="suboption-body hidden" 
@@ -81,7 +83,7 @@
 								<label for="google-play-id" class="suboption-label">
 									Google Play app ID
 								</label>
-								<input type="text" placeholder='com.dev.app as usual'>
+								<input type="text" placeholder='com.dev.app as usual' [(ngModel)]="appId">
 							</div>
 						</div>
 					</div>
@@ -100,12 +102,14 @@
 								<input type="radio" 
 									name="auto-update-option"
 									checked="true"
+									value="Once a week"
 									id="auto-update-week">
 									Once a week
 							</label>
 							<label for="auto-update-days" class="radio-button">
 								<input type="radio"
 									name="auto-update-option"
+									value="Once 3 days"
 									id="auto-update-days"
 								>
 								Once 3 days
@@ -113,6 +117,7 @@
 							<label for="auto-update-day" class="radio-button">
 								<input type="radio"
 									name="auto-update-option"
+									value="Once a day"
 									id="auto-update-day"
 								>
 								Once a day
@@ -129,14 +134,18 @@
 					<div class="creation-section-options radio-buttons-group">
 						<label for="research-type-public" class="radio-button">
 							<input type="radio" 
+								id="research-type-public"
 								name="research-type"
-								id="research-type-public">
-								Public
+								value="public"
+								checked="true"
+							>
+							Public
 						</label>
 						<label for="research-type-private" class="radio-button">
 							<input type="radio"
-								name="research-type"
 								id="research-type-private"
+								name="research-type"
+								value="private"
 							>
 							Private
 						</label>
@@ -149,15 +158,18 @@
 					<div class="creation-section-options radio-buttons-group">
 						<label for="research-analyzer-english" class="radio-button">
 							<input type="radio"
-								name="research-analyzer"
 								id="research-analyzer-english"
+								name="analyzer"
+								value="vader"
+								checked="true"
 							>
 							English <span class="faded-hint">(More precise )</span>
 						</label>
 						<label for="research-analyzer-multilingual" class="radio-button">
-							<input type="radio" 
-								name="research-analyzer" 
-								id="research-analyzer-multilingual"
+							<input type="radio"
+								id="research-analyzer-multilingual" 
+								name="analyzer"
+								value="polyglot"
 							>
 							Multilingual <span class="faded-hint">(Understands 136 language)</span>
 						</label>
@@ -184,13 +196,12 @@
 				<div class="creation-section-header">
 					Add a description <span class="faded-hint">(optional)</span>
 				</div>
-				<textarea id="description-text-area">
-
+				<textarea id="description-text-area" [(ngModel)]="description">
 				</textarea>
 			</div>
 		</div>
 		<div class="research-creation-body-row">
-			<div id="submit-button" class="bgc-dark">
+			<div id="submit-button" class="bgc-dark" (click)="submit()">
 				Sumbit
 			</div>
 			<div class="clearfix"></div>
