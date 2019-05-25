@@ -4,6 +4,10 @@ body {
     font-family: "Helvetica",sans-serif;
     line-height: 1.5em;
     color: rgb(45, 45, 45);
+    min-height: 100vh;
+}
+
+html {
     height: 100vh;
 }
 
