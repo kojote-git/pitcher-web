@@ -139,4 +139,9 @@ export class AuthenticationService {
 	public isAuthenticated() : boolean {
 		return getCookie("userCredentials") != undefined;
 	}
+
+	public getAccessToken() {
+		let jsonCredentials = JSON.parse(getCookie("userCredentials"));
+		return jsonCredentials["access_token"];
+	}
 }
