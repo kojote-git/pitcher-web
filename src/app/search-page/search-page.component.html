@@ -41,6 +41,10 @@
 					</div>
 				</div>
 				<div class="filter-column">
+					<div class="filter-name">KEYWORD</div>
+					<input type="text" [(ngModel)]="keyword" id="filter-option-keyword">
+				</div>
+				<div class="filter-column">
 					<div class="filter-name">DATE</div>
 					<div class="filter-options">
 						<div class="date-input-grid">
@@ -128,9 +132,9 @@
 								</li>
 							</ul>
 						</div>
-					</div>
+				</div>
 			</div>
-			<div>
+			<div style="text-align: right">
 				<div id="apply-filters" class="button" (click)="applyFilters()">Apply Filters</div>
 			</div>
 		</div>

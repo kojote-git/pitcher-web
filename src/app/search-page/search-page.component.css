@@ -168,3 +168,11 @@
 .sort-by-selected {
     font-weight: bold;
 }
+
+#filter-option-keyword {
+    border-radius: 2px;
+    border: 1px solid rgb(15, 169, 80);
+    box-sizing: border-box;
+    padding: 3px;
+    width: 100%;
+}

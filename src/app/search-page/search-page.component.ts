@@ -10,6 +10,7 @@ declare var createSelectionList: any;
 })
 export class SearchPageComponent implements OnInit {
     private researches: Object[] = [];
+    private keyword: string;
 
 	constructor(@Inject("SearchService") private searchService: SearchService) { 
         searchService.findAll()
@@ -47,6 +48,9 @@ export class SearchPageComponent implements OnInit {
         }
         if (analyser) {
             res.analyser = analyser;
+        }
+        if (this.keyword) {
+            res.keyword = this.keyword;
         }
         return res;
     }
