@@ -11,9 +11,21 @@ export class ResearchCreationComponent implements OnInit {
 	private keywords: string[] = [];
 	private topic = "";
 	private description = "";
-	private appName = "";
+	private appName = "";	
 	private appDev = "";
 	private appId = "";
+	private errors = {
+		topic: "",
+		appName: "",
+		appDev: "",
+		keywords: "",
+		services: "",
+		playStore : {
+			appName: "",
+			appDev: "",
+			appId: ""
+		}
+	};
 
 	constructor(private authService: AuthenticationService, private router: Router) {
 		if (!authService.isAuthenticated()) {
@@ -55,7 +67,72 @@ export class ResearchCreationComponent implements OnInit {
 	}
 
 	submit() : void {
-		console.log(this.gatherRequestData());
+		let data = this.gatherRequestData();
+		if (!this.checkRequestData(data)) {
+			return;
+		}
+		
+	}
+
+	private checkRequestData(data: object) : boolean {
+		return this.checkTopic(data["topic"]) &&
+			this.checkServices(data) &&
+			this.checkKeywords(data);
+	}
+
+	private checkTopic(topic: string) : boolean {
+		if (topic.length === 0) {
+			this.errors.topic = "this field is required";
+			return false;
+		} else {
+			this.errors.topic = "";
+			return true;
+		}
+	}
+
+	private checkServices(data: Object) : boolean {
+		if (data["modules"].length === 0) {
+			this.errors.services = "choose at least one service";
+			return false;
+		} else {
+			this.errors.services = "";
+			return data["modules"].includes("play_store") ? this.checkPlayStore(data) : true;
+		}
+	}
+
+	private checkPlayStore(data: Object) : boolean {
+		if (this.queryOptionByName("google-play-suboption", "play-name") === "play-name") {
+			if (data["app_name"].length === 0) {
+				this.errors.playStore.appName = "this field is required";
+				this.errors.playStore.appDev = "";
+				return false;
+			}
+			if (data["app_dev"].length === 0) {
+				this.errors.playStore.appName = "";
+				this.errors.playStore.appDev = "this field is required";
+				return false;
+			}
+			this.errors.playStore.appName = "";
+			this.errors.playStore.appDev = "";
+			return true;
+		} else {
+			if (data["app_id"].length === 0) {
+				this.errors.playStore.appId = "this field is required";
+				return false;
+			}
+			this.errors.playStore.appId = "";
+			return false;
+		}
+	}
+
+	private checkKeywords(data: Object) : boolean {
+		if (data["keywords"].length === 0) {
+			this.errors.keywords = "enter at least one keyword";
+			return false;
+		} else {
+			this.errors.keywords = "";
+			return true;
+		}
 	}
 
 	private setPlayStoreParameters(requestData: Object, modules: string[]) : void {

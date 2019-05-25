@@ -39,6 +39,10 @@ input[type="text"] {
     float: right;
 }
 
+#submit-button:hover {
+    cursor: pointer;
+}
+
 .clearfix {
     clear: both;
 }

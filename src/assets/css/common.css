@@ -86,3 +86,11 @@ a.none:hover {
     color: inherit;
     text-decoration: none;
 }
+
+.error-message-container {
+}
+
+.error-message {
+    color: rgb(255, 50, 50);
+    font-size: 0.9em;
+}

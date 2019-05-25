@@ -14,6 +14,9 @@
 					<div class="creation-section-options">
 						<input type="text" value="" placeholder="Choose wisely" [(ngModel)]="topic">
 					</div>
+					<div class="error-message-container">
+						<span class="error-message">{{errors.topic}}</span>
+					</div>
 				</div>
 				<div class="creation-section">
 					<div class="creation-section-header">
@@ -38,6 +41,9 @@
 								Newspapers
 							</label>
 						</div>
+					</div>
+					<div class="error-message-container">
+						<span class="error-message">{{errors.services}}</span>
 					</div>
 				</div>
 				<div class="creation-section hidden" id="google-play-creation-section">
@@ -70,12 +76,18 @@
 										Google Play app name
 									</label>
 									<input type="text" placeholder='Like "WhatsApp Messenger"' [(ngModel)]="appName">
+									<div class="error-message-container">
+										<span class="error-message">{{errors.playStore.appName}}</span>
+									</div>
 								</div>
 								<div>
 									<label for="google-play-dev-name" class="suboption-label">
 										Google Play dev name
 									</label>
 									<input type="text" placeholder='"WhatsApp Inc."' [(ngModel)]="appDev">
+									<div class="error-message-container">
+										<span class="error-message">{{errors.playStore.appDev}}</span>
+									</div>
 								</div>
 							</div>
 							<div class="suboption-body hidden" 
@@ -84,6 +96,9 @@
 									Google Play app ID
 								</label>
 								<input type="text" placeholder='com.dev.app as usual' [(ngModel)]="appId">
+								<div class="error-message-container">
+									<span class="error-message">{{errors.playStore.appId}}</span>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -178,6 +193,9 @@
 				<div class="creation-section">
 					<div class="creation-section-header">
 						Define keywords
+					</div>
+					<div class="error-message-container">
+						<span class="error-message">{{errors.keywords}}</span>
 					</div>
 					<div class="creation-section-options">
 						<input type="text" id="enter-keyword" placeholder="Enter keyword">
