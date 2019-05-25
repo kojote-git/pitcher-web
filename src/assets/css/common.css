@@ -5,6 +5,7 @@ body {
     line-height: 1.5em;
     color: rgb(45, 45, 45);
     min-height: 100vh;
+    background-color: rgb(253, 253, 253);
 }
 
 html {

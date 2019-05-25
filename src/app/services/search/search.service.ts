@@ -1,8 +1,19 @@
 import { Observable } from 'rxjs';
 
+export interface ResearchView {
+	id: number;
+	topic: string;
+	description: string;
+	creation: string;
+	views: number;
+	likes: number;
+	subscriptions: number;
+}
+
 export interface DateInterval {
-	begin?: Date,
-	end?: Date
+	// format yyyy-MM-dd
+	begin?: string,
+	end?: string
 }
 
 export interface Filters {
@@ -12,7 +23,7 @@ export interface Filters {
 }
 
 export interface SearchService {
-    findAll() : Observable<Object[]>;
-	filter(filters: Filters) : Observable<Object[]>;
-	findById(id: any) : Observable<Object>;
+    findAll() : Observable<ResearchView[]>;
+	filter(filters: Filters) : Observable<ResearchView[]>;
+	findById(id: any) : Observable<ResearchView>;
 }

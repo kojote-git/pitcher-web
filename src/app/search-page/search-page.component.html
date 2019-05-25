@@ -96,22 +96,35 @@
 	<div id="researches-list">
 		<div class="research-list-item" 
 			*ngFor="let research of researches">
-			<div class="research-list-item-section research-name">
-				{{research.name}}
+			<div class="research-list-item-section research-title">
+				<div class="research-name">
+					{{research.topic}}
+				</div>
+				<div class="research-date">
+					<span class="bold">{{research.creation}}</span>
+				</div>
 			</div>
 			<div class="research-list-item-section research-description">
 				{{research.description}}
 			</div>
-			<div class="research-list-item-section research-date">
-				Created on:
-				<span class="bold">{{research.date}}</span>
+			<div class="research-list-item-section research-stats">
+				<div class="research-stat">
+					<i class="fas fa-eye"></i>
+					{{research.views}}
+				</div>
+				<div class="research-stat bg">
+					{{research.likes}} likes
+					<span class="stat-control">
+						<i class="fas fa-thumbs-up"></i>
+					</span>
+				</div>
+				<div class="research-stat">
+					{{research.subscriptions}} subs
+					<span class="stat-control">
+						<i class="fas fa-star"></i>
+					</span>
+				</div>
 			</div>
-			<div class="research-list-item-section research-services">
-				<span *ngFor="let service of research.services">
-					<span class="service-label {{classForService(service)}}">
-						{{service}}
-				</span>
-			</span>
 		</div>
 	</div>
 </div>

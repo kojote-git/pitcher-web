@@ -43,11 +43,11 @@ nav {
     background-color: rgb(230, 230, 230);
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
-}
-
-#search-button {
     height: 35px;
     width: 35px;
+    line-height: 35px;
+    text-align: center;
+    font-size: 28px;
 }
 
 #search-bar-container {

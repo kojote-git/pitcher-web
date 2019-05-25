@@ -10,9 +10,9 @@ import { MenuComponent } from './menu/menu.component';
 import { SearchPageComponent } from './search-page/search-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { DemoSearchService } from './services/search/demo-search.service';
 import { ResearchCreationComponent } from './research-creation/research-creation.component';
 import { MainComponent } from './main/main.component';
+import { HttpSearchService } from './services/search/http-search.service';
 
 
 @NgModule({
@@ -33,7 +33,7 @@ import { MainComponent } from './main/main.component';
   ],
   providers: [
     AuthenticationService,
-    { provide: "SearchService", useClass: DemoSearchService }
+    { provide: "SearchService", useClass: HttpSearchService }
   ],
   bootstrap: [AppComponent]
 })
