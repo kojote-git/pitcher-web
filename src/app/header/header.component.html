@@ -14,8 +14,8 @@
 		</div>
 		<div id="search-box" class="header-item">
 			<div id="search-bar-container">
-				<input id="search-bar" type="search" placeholder="type a keyword...">
-				<div id="search-button">
+				<input id="search-bar" type="search" placeholder="type a keyword..." [(ngModel)]="keyword">
+				<div id="search-button" (click)="search()">
 					<a href="#" class="none">
 						<i class="fas fa-search"></i>
 					</a>

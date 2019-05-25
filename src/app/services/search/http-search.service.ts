@@ -35,6 +35,12 @@ export class HttpSearchService implements SearchService {
         if (filters.sortBy) {
             params["sorting"] = filters.sortBy;
         }
+        if (filters.analyser) {
+            params["analyser"] = filters.analyser;
+        }
+        if (filters.keyword) {
+            params["keyword"] = filters.keyword;
+        }
         let queryString = this.encodeQueryString(params);
         return this.http.get<ResearchView[]>("http://localhost:5080/research/search" + queryString)
             .pipe(

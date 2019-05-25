@@ -19,7 +19,9 @@ export interface DateInterval {
 export interface Filters {
 	date?: DateInterval,
 	services?: string[],
-	sortBy?: string
+	sortBy?: string,
+	analyser?: string,
+	keyword?: string
 }
 
 export interface SearchService {
