@@ -73,7 +73,7 @@ export class SearchPageComponent implements OnInit {
         } else {
             this.interactionService.removeLike(id).subscribe();
             this.liked = this.liked.filter(i => i !== id);
-            this.findResearchById(id)["likes"]++;
+            this.findResearchById(id)["likes"]--;
         } 
     }
 
