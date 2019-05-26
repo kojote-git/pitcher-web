@@ -150,6 +150,16 @@
     padding: 5px;
 }
 
+.research-list-item-section {
+    color: rgb(100, 100, 100);
+    font-size: 0.95em;
+}
+
+.research-name {
+    color: rgb(40, 40, 40);
+    font-size: 1.15em;
+}
+
 .stat-control {
     background-color: rgb(15, 179, 108);
     color: rgb(255, 255, 255);
