@@ -160,13 +160,13 @@
 				</div>
 				<div class="research-stat bg">
 					{{research.likes}} likes
-					<span class="stat-control">
+					<span class="stat-control {{classForLiked(research.id)}}" (click)="like(research.id)">
 						<i class="fas fa-thumbs-up"></i>
 					</span>
 				</div>
 				<div class="research-stat">
 					{{research.subscriptions}} subs
-					<span class="stat-control">
+					<span class="stat-control {{classForSubscribed(research.id)}}" (click)="subscribe(research.id)">
 						<i class="fas fa-star"></i>
 					</span>
 				</div>

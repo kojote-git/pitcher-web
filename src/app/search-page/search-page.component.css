@@ -92,6 +92,10 @@
     margin: 0px;
 }
 
+.liked, .subscribed {
+    background-color: rgb(15, 179, 255)!important;
+}
+
 .filter-name {
     font-weight: bold;
     font-size: 1em;

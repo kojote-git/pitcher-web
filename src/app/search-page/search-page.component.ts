@@ -1,6 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Filters, DateInterval, SearchService } from '../services/search/search.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ResearchInteractionService } from '../services/research/research-interaction.service';
+import { map, catchError } from 'rxjs/operators';
+import { AuthenticationService } from '../services/auth/authentication.service';
 
 declare var createSelectionList: any;
 
@@ -11,11 +14,20 @@ declare var createSelectionList: any;
 })
 export class SearchPageComponent implements OnInit {
     private researches: Object[] = [];
+    private liked: number[] = [];
+    private subscribed: number[] = [];
     private keyword: string;
 
-	constructor(@Inject("SearchService") private searchService: SearchService, private activatedRoute: ActivatedRoute) { 
+    constructor(@Inject("SearchService") private searchService: SearchService, 
+        private auth: AuthenticationService,
+        private activatedRoute: ActivatedRoute,
+        private interactionService: ResearchInteractionService) { 
         searchService.findAll()
             .subscribe(researches => this.researches = researches);
+        interactionService.getLikesForCurrentUser()
+            .subscribe(resp => this.liked = resp);
+        interactionService.getSubscriptionsForCurrentUser()
+            .subscribe(resp => this.subscribed = resp);
     }
 
 	ngOnInit() {
@@ -53,6 +65,58 @@ export class SearchPageComponent implements OnInit {
         }
     }
     
+    like(id: number) {
+        if (!this.isLiked(id)) {
+            this.interactionService.like(id).subscribe();
+            this.liked.push(id);
+            this.findResearchById(id)["likes"]++;
+        } else {
+            this.interactionService.removeLike(id).subscribe();
+            this.liked = this.liked.filter(i => i !== id);
+            this.findResearchById(id)["likes"]++;
+        } 
+    }
+
+    subscribe(id: number) {
+        if (!this.isSubscribed(id)) {
+            this.interactionService.subscribe(id).subscribe();
+            this.subscribed.push(id);
+            this.findResearchById(id)["subscriptions"]++;
+        } else {
+            this.interactionService.unsubscribe(id).subscribe();
+            this.subscribed = this.subscribed.filter(i => i !== id);
+            this.findResearchById(id)["subscriptions"]--;
+        }
+    }
+
+    private findResearchById(id: number): Object {
+        return this.researches.filter(r => r["id"] === id)[0];
+    }
+
+    isLiked(id: number): boolean {
+        return this.auth.isAuthenticated() && 
+            this.liked.includes(id);
+    }
+
+    isSubscribed(id: number): boolean {
+        return this.auth.isAuthenticated() && 
+            this.subscribed.includes(id);
+    }
+
+    classForLiked(id: number): string {
+        if (this.isLiked(id)) {
+            return "liked";
+        }
+        return "";
+    }
+
+    classForSubscribed(id: number): string {
+        if (this.isSubscribed(id)) {
+            return "subscribed";
+        }
+        return "";
+    }
+
 	private gatherFilters() : Filters {
         let res: Filters = {};
         let date = this.getCreationInterval();
