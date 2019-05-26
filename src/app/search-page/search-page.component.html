@@ -173,4 +173,20 @@
 			</div>
 		</div>
 	</div>
+	<div *ngIf="researches.length === 0" id="nothing-to-show-block">
+		<div id="nothing-to-show-message">
+			Nothing to show...
+		</div>
+		<div id="nothing-to-show-input-contaier">
+			<div id="nothing-to-show-search-container" (click)="searchByKeywordClick()">
+				<i id="nothing-to-show-search" class="fas fa-search"></i>
+			</div>
+			<input
+				id="nothing-to-show-input" 
+				type="text" placeholder="type a keyword..."
+				[(ngModel)]="keyword"
+				(keydown)="searchByKeywordKeydown($event)"
+				>
+		</div>
+	</div>
 </div>

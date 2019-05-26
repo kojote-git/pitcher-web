@@ -37,6 +37,49 @@
     font-weight: bold;
 }
 
+#nothing-to-show-block {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#nothing-to-show-message {
+    text-align: center;
+    font-size: 1.4em;
+    color: rgb(120, 120, 120);
+}
+
+#nothing-to-show-input-contaier {
+    max-width: 450px;
+    position: relative;
+    margin: 15px auto;
+}
+
+#nothing-to-show-input {
+    box-sizing: border-box;
+    padding: 5px 20px 5px 5px;
+    width: 100%;
+    border: 1px solid rgb(15, 179, 108);
+    border-radius: 3px;
+    font-size: 16px;
+}
+
+#nothing-to-show-input:focus {
+    outline: none;
+}
+
+#nothing-to-show-search-container {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    font-size: 16px;
+    line-height: 32px;
+    height: 100%;
+}
+
+#nothing-to-show-search:hover {
+    cursor: pointer;
+}
+
 .filter-columns {
     display: flex;
     flex-direction: row;

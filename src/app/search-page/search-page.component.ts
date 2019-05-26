@@ -41,6 +41,17 @@ export class SearchPageComponent implements OnInit {
             }
         });
     }
+
+    searchByKeywordClick() {
+        this.applyFilters();
+    }
+
+    searchByKeywordKeydown(event: any) {
+        let enter = 13;
+        if (event.keyCode === enter) {
+            this.applyFilters();
+        }
+    }
     
 	private gatherFilters() : Filters {
         let res: Filters = {};

@@ -12,6 +12,10 @@ html {
     height: 100vh;
 }
 
+input {
+    background-color: rgb(255, 255, 255);
+}
+
 img.full-width {
     width: 100%;
 }
