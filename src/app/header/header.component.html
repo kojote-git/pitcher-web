@@ -14,9 +14,13 @@
 		</div>
 		<div id="search-box" class="header-item">
 			<div id="search-bar-container">
-				<input id="search-bar" type="search" placeholder="type a keyword..." [(ngModel)]="keyword">
+				<input id="search-bar" type="search" 
+					placeholder="type a keyword..." 
+					[(ngModel)]="keyword"
+					(keydown)="searchOnKeydown($event)"
+				>
 				<div id="search-button" (click)="search()">
-					<a href="#" class="none">
+					<a class="none">
 						<i class="fas fa-search"></i>
 					</a>
 				</div>
@@ -24,7 +28,7 @@
 		</div>
 		<div id="header-controls-container" class="header-item">
 			<div id="hamburger-container">
-				<img id="hamburger-menu" src="assets/img/menu-humb-512.png" class="full-height full-width" alt="">
+				<i id="hamburger-menu" class="fas fa-bars"></i>
 			</div>
 			<div id="user-controls" *ngIf="!isAuthenticated()">
 				<ul class="horizontal-list">
@@ -43,19 +47,7 @@
 			<div id="user-controls" class="user-controls authenticated" *ngIf="isAuthenticated()">
 				<div class="profile-info">
 					<div class="profile-pic-container">
-						<img id="profile-pic" 
-							src="assets/img/sign-up-white.png" alt="" class="profile-pic">
-					</div>
-				</div>
-				<div id="profile-dropdown">
-					<div id="profile-"></div>
-					<div>
-						<ul id="profile-dropdown-controls" 
-							class="profile-dropdown-controls">
-							<li class="profile-dropdown-control">your profile</li>
-							<li class="profile-dropdown-control">settings</li>
-							<li class="profile-dropdown-control" (click)="logout()">logout</li>
-						</ul>
+						<i class="fas fa-user"></i>
 					</div>
 				</div>
 			</div>

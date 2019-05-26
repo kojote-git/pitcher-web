@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Filters, DateInterval, SearchService } from '../services/search/search.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 declare var createSelectionList: any;
 
@@ -12,18 +13,19 @@ export class SearchPageComponent implements OnInit {
     private researches: Object[] = [];
     private keyword: string;
 
-	constructor(@Inject("SearchService") private searchService: SearchService) { 
+	constructor(@Inject("SearchService") private searchService: SearchService, private activatedRoute: ActivatedRoute) { 
         searchService.findAll()
             .subscribe(researches => this.researches = researches);
     }
 
 	ngOnInit() {
 		document.getElementById("filters-toggle")
-		.addEventListener("click", function(e) {
-			let filters = document.getElementById("filters");
-			filters.classList.toggle("filters-collapsed");
-			filters.classList.toggle("filters-expanded");
-		});
+		    .addEventListener("click", function(e) {
+			    let filters = document.getElementById("filters");
+			    filters.classList.toggle("filters-collapsed");
+			    filters.classList.toggle("filters-expanded");
+            });
+        this.searchByKeywordIfPresent();
 	}
 
 	public applyFilters() {
@@ -31,6 +33,15 @@ export class SearchPageComponent implements OnInit {
             .subscribe(researches => this.researches = researches);
     }
 
+    private searchByKeywordIfPresent() {
+        this.activatedRoute.queryParams.subscribe(params => {
+            if (params.keyword) {
+                this.keyword = params.keyword;
+                this.applyFilters();
+            }
+        });
+    }
+    
 	private gatherFilters() : Filters {
         let res: Filters = {};
         let date = this.getCreationInterval();
