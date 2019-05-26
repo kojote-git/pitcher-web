@@ -45,6 +45,10 @@ export class MenuComponent implements OnInit {
 		return this.authService.isAuthenticated();
 	}
 
+	logout() {
+		this.authService.logout();
+	}
+
 	private toggleMenu(self) : void {
 		if (!self.menu.expanded) {
 			self.expand(self, self.menu);

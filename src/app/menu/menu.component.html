@@ -63,13 +63,11 @@
 		</div>
 	</div>
 	<div *ngIf="isAuthenticated()" class="menu-item menu-item-collapsed">
-		<a  class="menu-link menu-item-text menu-item-text-collapsed"
-			[routerLink]="['/profile']">
+		<a  class="menu-link menu-item-text menu-item-text-collapsed" (click)="logout()">
 			Logout
 		</a>
 		<div class="menu-item-icon-wrapper">
-			<a  class="menu-link"
-				[routerLink]="['/profile']">
+			<a  class="menu-link" (click)="logout()">
 				<i class="menu-item-icon fas fa-sign-out-alt"></i>
 			</a>
 		</div>

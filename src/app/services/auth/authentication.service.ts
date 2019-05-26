@@ -130,9 +130,8 @@ export class AuthenticationService {
 						Authorization: `Bearer ${jsonCredentials["refresh_token"]}`
 					}
 				}
-			).subscribe(response => {
-				deleteCookie("userCredentials");
-			});
+			);
+			deleteCookie("userCredentials");
 		});
 	}
 
