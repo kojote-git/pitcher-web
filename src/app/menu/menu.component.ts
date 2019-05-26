@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { AuthenticationService } from '../services/auth/authentication.service';
+import { Router } from '@angular/router';
 
 interface Menu {
 	element: HTMLElement,
@@ -18,7 +19,7 @@ export class MenuComponent implements OnInit {
 	headerHeight = 60;
 	self = this;
 	
-	constructor(private authService: AuthenticationService) { }
+	constructor(private authService: AuthenticationService, private router: Router) { }
 
 	ngOnInit() {
 		let self = this;
@@ -47,6 +48,7 @@ export class MenuComponent implements OnInit {
 
 	logout() {
 		this.authService.logout();
+		this.router.navigate(["/"]);
 	}
 
 	private toggleMenu(self) : void {
