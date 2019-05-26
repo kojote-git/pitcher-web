@@ -147,6 +147,20 @@ input[type="text"] {
     cursor: pointer;
 }
 
+.feedback-message-container {
+    text-align: center;
+    margin: 10px 0 10px 0;
+    font-size: 1.15em;
+}
+
+.feedback-success {
+    color: rgb(40, 167, 69);
+}
+
+.feedback-failure {
+    color: rgb(220, 53, 69);
+}
+
 @media (min-width: 992px) {
     .service-button:nth-child(odd) {
         margin-right: 10px;

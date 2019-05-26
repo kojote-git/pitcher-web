@@ -27,6 +27,10 @@ export class ResearchCreationComponent implements OnInit {
 			appId: ""
 		}
 	};
+	private feedback = {
+		clazz: "",
+		message: ""
+	};
 
 	constructor(private authService: AuthenticationService, private router: Router, private http: HttpClient) {
 		if (!authService.isAuthenticated()) {
@@ -78,8 +82,14 @@ export class ResearchCreationComponent implements OnInit {
 					Authorization: `Bearer ${this.authService.getAccessToken()}`
 				}
 		}).subscribe(
-			response => {},
-			error => {}
+			response => {
+				this.feedback.message = response["message"];
+				this.feedback.clazz = "feedback-success";
+			},
+			error => {
+				this.feedback.message = "something went wrong";
+				this.feedback.clazz = "feedback-failure";
+			}
 		);
 	}
 
