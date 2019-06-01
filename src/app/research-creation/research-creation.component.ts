@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../services/auth/authentication.service';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { ResearchService, ResearchData } from '../services/research/research.service';
 
 @Component({
 	selector: 'app-research-creation',
@@ -32,7 +33,11 @@ export class ResearchCreationComponent implements OnInit {
 		message: ""
 	};
 
-	constructor(private authService: AuthenticationService, private router: Router, private http: HttpClient) {
+	constructor(
+		private authService: AuthenticationService, 
+		private router: Router, 
+		private http: HttpClient,
+		private researchService: ResearchService) {
 		if (!authService.isAuthenticated()) {
 			router.navigate(["/"]);
 		}
@@ -57,7 +62,7 @@ export class ResearchCreationComponent implements OnInit {
 			});
 	}
 
-	private gatherRequestData() : Object {
+	private gatherRequestData() : ResearchData {
 		let requestData = {};
 		let modules = this.getModules();
 		requestData["topic"] = this.getTopic();
@@ -68,7 +73,7 @@ export class ResearchCreationComponent implements OnInit {
 		requestData["analysers"] = this.getAnalyzer();
 		requestData["keywords"] = this.keywords;
 		this.setPlayStoreParameters(requestData, modules);
-		return requestData;
+		return (requestData as ResearchData);
 	}
 
 	submit() : void {
@@ -76,21 +81,15 @@ export class ResearchCreationComponent implements OnInit {
 		if (!this.checkRequestData(data)) {
 			return;
 		}
-		this.http.post("http://localhost:5080/research/use", 
-			data, {
-				headers: {
-					Authorization: `Bearer ${this.authService.getAccessToken()}`
-				}
-		}).subscribe(
-			response => {
+		this.researchService.createResearch(data)
+			.then(response => {
 				this.feedback.message = response["message"];
 				this.feedback.clazz = "feedback-success";
-			},
-			error => {
+			})
+			.catch(error => {
 				this.feedback.message = "something went wrong";
 				this.feedback.clazz = "feedback-failure";
-			}
-		);
+			});
 	}
 
 	private checkRequestData(data: object) : boolean {

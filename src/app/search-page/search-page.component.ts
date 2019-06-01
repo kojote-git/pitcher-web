@@ -22,8 +22,6 @@ export class SearchPageComponent implements OnInit {
         private auth: AuthenticationService,
         private activatedRoute: ActivatedRoute,
         private interactionService: ResearchInteractionService) { 
-        searchService.findAll()
-            .subscribe(researches => this.researches = researches);
         interactionService.getLikesForCurrentUser()
             .subscribe(resp => this.liked = resp);
         interactionService.getSubscriptionsForCurrentUser()
