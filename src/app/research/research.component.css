@@ -114,6 +114,13 @@
     border-right: 3px solid rgb(200, 200, 200);
 }
 
+.bordered {
+    border-bottom: 3px solid rgb(15, 189, 108);
+    border-right: 3px solid rgb(15, 189, 108);
+    margin: 10px;
+    padding: 10px;
+}
+
 .chart-wrapper {
     border-bottom: 3px solid rgb(15, 189, 108);
     border-right: 3px solid rgb(15, 189, 108);
@@ -128,14 +135,22 @@
     font-weight: bold;
 }
 
-#twitter-charts-grid {
+.triple-grid {
     display: grid;
     grid-template-columns: 32% 32% 32%;
     grid-column-gap: 2%;
 }
 
 @media (max-width: 992px) {
-    #twitter-charts-grid {
+    .triple-grid {
         display: block;
     }
+}
+
+.playstore-attribute {
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.3em;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }

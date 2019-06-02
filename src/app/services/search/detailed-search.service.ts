@@ -1,6 +1,11 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 
+export interface DateRange {
+    begin: string,
+    end: string
+}
+
 export interface DetailedResearchView {
     id: number,
     topic: string,
@@ -37,6 +42,28 @@ export interface TwitterDetails {
         url: string,
         sentiment: number
     }[];
+}
+
+export interface PlayStoreDetails {
+    hist: {
+        one: number,
+        two: number,
+        three: number,
+        four: number,
+        five: number
+    },
+    app_info: {
+        name: string,
+        rate: number,
+        downloads: string,
+        reviews: number,
+        not_clear_reviews: number
+    },
+    top_reviews: {
+        rate: number,
+        text: string,
+        sentiment: number
+    }[]
 }
 
 @Injectable({
@@ -98,11 +125,39 @@ export class DetailedSearchService {
         ]
     };
 
+    private playStore: PlayStoreDetails = {
+        hist: {
+            one: 23,
+            two: 21,
+            three: 40,
+            four: 192,
+            five: 300
+        },
+        app_info: {
+            name: "hello world",
+            rate: 4.7,
+            downloads: "1000+",
+            reviews: 100,
+            not_clear_reviews: 10
+        },
+        top_reviews: [
+            {
+                rate: 5,
+                text: "hello world",
+                sentiment: 0.7
+            }
+        ]
+    }
+
     findById(id: number) : Promise<DetailedResearchView> {
         return of(this.researches[0]).toPromise();
     }
 
-    loadTwitterDetails(id: number) : Promise<TwitterDetails> {
+    loadTwitterDetails(id: number, dateRange?: DateRange) : Promise<TwitterDetails> {
         return of(this.twitter).toPromise();
+    }
+
+    loadPlayStoreDetails(id: number, dateRange?: DateRange) : Promise<PlayStoreDetails> {
+        return of(this.playStore).toPromise();
     }
 }

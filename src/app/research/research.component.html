@@ -79,18 +79,52 @@
 	</div>
 	<div class="content-section">
 		<div class="service-tab hidden" data-service="twitter">
-			<div id="twitter-charts-grid">
-				<div class="chart-wrapper">
+			<div class="triple-grid">
+				<div class="bordered">
 					<div class="chart-head">Number Of Mentions</div>
 					<canvas id="twitter-mentions" class="chart"></canvas>
 				</div>
-				<div class="chart-wrapper">
+				<div class="bordered">
 					<div class="chart-head">Most frequent words</div>
 					<canvas id="twitter-most-frequent-words" class="chart"></canvas>
 				</div>
-				<div class="chart-wrapper">
+				<div class="bordered">
 					<div class="chart-head">Sentiment Score</div>
 					<canvas id="twitter-total-opinion-percentage" class="chart"></canvas>
+				</div>
+			</div>
+		</div>
+		<div class="service-tab hidden" data-service="play_store">
+			<div class="triple-grid">
+				<div class="bordered">
+					<div class="chart-head">Rating chart</div>
+					<canvas id="play-store-rating-chart"></canvas>
+				</div>
+				<div class="bordered bgc-dark">
+					<div class="infoblock-header light text-center">Application name</div>
+					<div class="c-primary playstore-attribute">{{playstore ? playstore.app_info.name : "none"}}</div> 
+					<div class="infoblock-header light text-center">Average rating</div>
+					<div class="infoblock-value c-primary playstore-attribute">
+						<div id="playstore-stars">
+							<i *ngFor="let i of [1, 2, 3, 4, 5]" class="{{getStarForRate(i)}}">
+							</i>
+						</div>
+						<div class="playstore-attribute">
+							{{playstore ? playstore.app_info.rate : "none"}}
+						</div>
+					</div>
+				</div>
+				<div class="bordered">
+					<div class="infoblock-header">Total downloads</div>
+					<div class="infoblock-value">
+						{{playstore ? playstore.app_info.downloads : "none"}}
+					</div>
+					<div class="infoblock-header">Reviews count</div>
+					<div class="infoblock-value">
+						{{playstore ? playstore.app_info.reviews + playstore.app_info.not_clear_reviews : "none"}}
+					</div>
+					<div class="infoblock-header">Written reviews only</div>
+						{{playstore ? playstore.app_info.reviews : "none"}}
 				</div>
 			</div>
 		</div>
