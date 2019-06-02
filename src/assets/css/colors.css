@@ -3,7 +3,7 @@
 }
 
 .bgc-dark {
-    background-color: rgb(42, 50, 53);
+    background-color: rgb(42, 50, 53)!important;
 }
 
 .bgc-primary {
@@ -11,7 +11,7 @@
 }
 
 .c-primary {
-    color: rgb(15, 179, 108);
+    color: rgb(15, 179, 108)!important;
 }
 
 .bgc-primary-light {

@@ -1,0 +1,68 @@
+<div class="content-wrapper">
+	<div class="infoblocks content-section">
+		<div class="infoblock bgc-dark">
+			<div class="infoblock-header light">Name</div>
+			<div class="infoblock-value c-primary">{{research.topic}}</div>
+			<div class="research-dates">
+				<div class="research-date">
+					<div class="infoblock-header light">Date Initialized</div>
+					<div class="infoblock-value c-primary">{{research.creation}}</div>
+				</div>
+				<div class="research-date">
+					<div class="infoblock-header light">Last update</div>
+					<div class="infoblock-value c-primary">{{research.last_update}}</div>
+				</div>
+			</div>
+		</div>
+		<div class="infoblock">
+			<div class="infoblock-header">Creator</div>
+			<div class="infoblock-value c-primary">{{research.owner.fullname}} ({{research.owner.username}})</div>
+			<div class="infoblock-header">Description</div>
+			<p>{{research.description}}</p>
+		</div>
+		<div class="infoblock">
+			<div class="infoblock-header">Keywords</div>
+			<ul>
+				<li *ngFor="let keyword of research.keywords">
+					{{keyword}}
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="service-control" class="content-section">
+		<div id="date-pickers-container">
+			<h3>Choose service to show its analytics</h3>
+			<div class="date-pickers">
+				<div class="date-picker">
+					<span class="bold">From</span>&nbsp;&nbsp;<input type="date"/>
+				</div>
+				<div class="date-picker">
+					<span class="bold">To</span>&nbsp;&nbsp;<input type="date"/>
+				</div>
+				<div class="date-picker">
+					<div id="refresh" class="bgc-primary">
+						Apply and refresh
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="service-buttons">
+			<div class="grid-row">
+				<div class="service-button bgc-dark">
+					Twitter
+				</div>
+				<div class="service-button bgc-dark">
+					Pdswad
+				</div>
+			</div>
+			<div class="grid-row">
+				<div class="service-button bgc-dark">
+					dswasdw
+				</div>
+				<div class="service-button bgc-dark">
+					dsawdw
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { ResearchCreationComponent } from './research-creation/research-creation.component';
 import { MainComponent } from './main/main.component';
 import { HttpSearchService } from './services/search/http-search.service';
+import { ResearchComponent } from './research/research.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { HttpSearchService } from './services/search/http-search.service';
     MenuComponent,
     SearchPageComponent,
     ResearchCreationComponent,
-    MainComponent
+    MainComponent,
+    ResearchComponent
   ],
   imports: [
     BrowserModule,
