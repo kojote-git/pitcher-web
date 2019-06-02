@@ -63,6 +63,18 @@ export class DetailedSearchService {
             }, {
                 date: "Apr 2017",
                 rate: 231,
+            }, {
+                date: "Mar 2017",
+                rate: 352,
+            }, {
+                date: "Apr 2017",
+                rate: 400,
+            }, {
+                date: "Mar 2017",
+                rate: 1000,
+            }, {
+                date: "Apr 2017",
+                rate: 200,
             }
         ],
         sentiment: {
@@ -72,7 +84,11 @@ export class DetailedSearchService {
         },
         frequent_words: [
             { word: "hello", rate: 1000 },
-            { word: "world", rate: 1000 }
+            { word: "world", rate: 782 },
+            { word: "dsadaw", rate: 132 },
+            { word: "wodsaw", rate: 102 },
+            { word: "worlddsadsawdsaw", rate: 32 },
+            { word: "worldads", rate: 12 }
         ],
         tweets: [
             {

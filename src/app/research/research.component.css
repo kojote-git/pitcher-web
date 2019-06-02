@@ -114,21 +114,28 @@
     border-right: 3px solid rgb(200, 200, 200);
 }
 
-.diagram-wrapper {
+.chart-wrapper {
     border-bottom: 3px solid rgb(15, 189, 108);
     border-right: 3px solid rgb(15, 189, 108);
     margin: 10px;
     padding: 10px;
 }
 
-.diagram-grid {
+.chart-head {
+    text-align: center;
+    margin: 1.2em;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#twitter-charts-grid {
     display: grid;
-    grid-template-columns: 49% 49%;
+    grid-template-columns: 32% 32% 32%;
     grid-column-gap: 2%;
 }
 
-@media (max-width: 768px) {
-    .diagram-grid {
+@media (max-width: 992px) {
+    #twitter-charts-grid {
         display: block;
     }
 }

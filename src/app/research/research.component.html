@@ -79,15 +79,18 @@
 	</div>
 	<div class="content-section">
 		<div class="service-tab hidden" data-service="twitter">
-			<div class="diagram-wrapper">
-				<canvas id="twitter-mentions" class="diagram"></canvas>
-			</div>
-			<div class="diagram-grid">
-				<div class="diagram-wrapper">
-					<canvas id="twitter-most-frequent-words" class="diagram"></canvas>
+			<div id="twitter-charts-grid">
+				<div class="chart-wrapper">
+					<div class="chart-head">Number Of Mentions</div>
+					<canvas id="twitter-mentions" class="chart"></canvas>
 				</div>
-				<div class="diagram-wrapper">
-					<canvas id="twitter-total-opinion-percentage" class="diagram"></canvas>
+				<div class="chart-wrapper">
+					<div class="chart-head">Most frequent words</div>
+					<canvas id="twitter-most-frequent-words" class="chart"></canvas>
+				</div>
+				<div class="chart-wrapper">
+					<div class="chart-head">Sentiment Score</div>
+					<canvas id="twitter-total-opinion-percentage" class="chart"></canvas>
 				</div>
 			</div>
 		</div>
