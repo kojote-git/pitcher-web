@@ -48,13 +48,13 @@
 		</div>
 		<div id="service-buttons">
 			<div class="grid-row">
-				<div class="service-button bgc-dark" 
+				<div class="service-button bgc-dark {{isActive('twitter')}}" 
 					attr.data-disabled="{{isDisabled('twitter')}}"
 					(click)="showService('twitter')"
 				>
 					Twitter
 				</div>
-				<div class="service-button bgc-dark" 
+				<div class="service-button bgc-dark {{isActive('play_store')}}" 
 					attr.data-disabled="{{isDisabled('play_store')}}"
 					(click)="showService('play_store')"
 				>	
@@ -62,13 +62,13 @@
 				</div>
 			</div>
 			<div class="grid-row">
-				<div class="service-button bgc-dark" 
+				<div class="service-button bgc-dark {{isActive('news')}}" 
 					attr.data-diabled="{{isDisabled('news')}}"
 					(click)="showService('news')"	
 				>
 					Newspapers
 				</div>
-				<div class="service-button bgc-dark" 
+				<div class="service-button bgc-dark {{isActive('search')}}" 
 					attr.data-disabled="{{isDisabled('search')}}"
 					(click)="showService('search')"	
 				>

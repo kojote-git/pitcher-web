@@ -37,6 +37,10 @@ export class ResearchComponent implements OnInit {
 		return this.research ? !this.research.active_modules.includes(service) : true;
 	}
 
+	isActive(service: string) {
+		return this.serviceShown == service ? "service-button-active" : "";
+	}
+
 	showService(service: string) {
 		if (this.research.active_modules.includes(service)) {
 			switch (service) {

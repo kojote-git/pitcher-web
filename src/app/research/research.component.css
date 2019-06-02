@@ -120,6 +120,18 @@
     text-align: center;
 }
 
+.service-button[data-disabled="true"] {
+    border-bottom: 3px solid rgb(200, 200, 200);
+    border-right: 3px solid rgb(200, 200, 200);
+}
+
+.service-button[data-disabled="false"]:hover, .service-button-active {
+    border-bottom: unset;
+    border-right: unset;
+    border-top: 3px solid rgb(239, 113, 33);
+    border-left: 3px solid rgb(239, 113, 33);
+}
+
 .service-button:hover {
     cursor: pointer;
 }
