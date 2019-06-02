@@ -48,19 +48,46 @@
 		</div>
 		<div id="service-buttons">
 			<div class="grid-row">
-				<div class="service-button bgc-dark">
+				<div class="service-button bgc-dark" 
+					attr.data-disabled="{{isDisabled('twitter')}}"
+					(click)="showService('twitter')"
+				>
 					Twitter
 				</div>
-				<div class="service-button bgc-dark">
-					Pdswad
+				<div class="service-button bgc-dark" 
+					attr.data-disabled="{{isDisabled('play_store')}}"
+					(click)="showService('play_store')"
+				>	
+					Play Store
 				</div>
 			</div>
 			<div class="grid-row">
-				<div class="service-button bgc-dark">
-					dswasdw
+				<div class="service-button bgc-dark" 
+					attr.data-diabled="{{isDisabled('news')}}"
+					(click)="showService('news')"	
+				>
+					Newspapers
 				</div>
-				<div class="service-button bgc-dark">
-					dsawdw
+				<div class="service-button bgc-dark" 
+					attr.data-disabled="{{isDisabled('search')}}"
+					(click)="showService('search')"	
+				>
+					Google Trends
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="content-section">
+		<div class="service-tab hidden" data-service="twitter">
+			<div class="diagram-wrapper">
+				<canvas id="twitter-mentions" class="diagram"></canvas>
+			</div>
+			<div class="diagram-grid">
+				<div class="diagram-wrapper">
+					<canvas id="twitter-most-frequent-words" class="diagram"></canvas>
+				</div>
+				<div class="diagram-wrapper">
+					<canvas id="twitter-total-opinion-percentage" class="diagram"></canvas>
 				</div>
 			</div>
 		</div>

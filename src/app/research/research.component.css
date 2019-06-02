@@ -108,3 +108,27 @@
 .service-button:hover {
     cursor: pointer;
 }
+
+.service-button[data-disabled="true"] {
+    border-bottom: 3px solid rgb(200, 200, 200);
+    border-right: 3px solid rgb(200, 200, 200);
+}
+
+.diagram-wrapper {
+    border-bottom: 3px solid rgb(15, 189, 108);
+    border-right: 3px solid rgb(15, 189, 108);
+    margin: 10px;
+    padding: 10px;
+}
+
+.diagram-grid {
+    display: grid;
+    grid-template-columns: 49% 49%;
+    grid-column-gap: 2%;
+}
+
+@media (max-width: 768px) {
+    .diagram-grid {
+        display: block;
+    }
+}
