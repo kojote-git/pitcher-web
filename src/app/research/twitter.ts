@@ -1,7 +1,7 @@
 import { DetailedSearchService, TwitterDetails } from '../services/search/detailed-search.service';
 import Chart from "chart.js";
 
-export default class TwitterComponent {
+export class TwitterComponent {
     private details: TwitterDetails;
 
     constructor(id: number, search: DetailedSearchService) {
@@ -22,7 +22,7 @@ export default class TwitterComponent {
         let dates = this.details.popularity_rate.map(rate => rate.date);
         let values = this.details.popularity_rate.map(rate => rate.rate);
         new Chart(
-            document.getElementById("twitter-mentions").getContext("2d"), 
+            (document.getElementById("twitter-mentions") as any).getContext("2d"), 
             {
                 type: "line",
                 data: {
@@ -43,7 +43,7 @@ export default class TwitterComponent {
         let words = this.details.frequent_words.map(word => word.word);
         let rates = this.details.frequent_words.map(word => word.rate);
         new Chart(
-            document.getElementById("twitter-most-frequent-words").getContext("2d"),
+            (document.getElementById("twitter-most-frequent-words") as any).getContext("2d"),
             {
                 type: "bar",
                 data: {
@@ -62,7 +62,7 @@ export default class TwitterComponent {
     opinionPercentage() {
         let sentiment = this.details.sentiment;
         new Chart(
-            document.getElementById("twitter-total-opinion-percentage").getContext("2d"),
+            (document.getElementById("twitter-total-opinion-percentage") as any).getContext("2d"),
             {
                 type: "pie",
                 data: {

@@ -109,7 +109,7 @@
 							<i *ngFor="let i of [1, 2, 3, 4, 5]" class="{{getStarForRate(i)}}">
 							</i>
 						</div>
-						<div class="playstore-attribute">
+						<div id="playstore-rate" class="playstore-attribute">
 							{{playstore ? playstore.app_info.rate : "none"}}
 						</div>
 					</div>
@@ -125,6 +125,26 @@
 					</div>
 					<div class="infoblock-header">Written reviews only</div>
 						{{playstore ? playstore.app_info.reviews : "none"}}
+				</div>
+			</div>
+		</div>
+		<div class="service-tab hidden" data-service="search">
+			<div class="triple-grid">
+				<div class="bordered">
+					<div class="infoblock-header text-center">The dynamics of popularity</div>
+					<canvas id="google-trends-popularity"></canvas>
+				</div>
+				<div class="bordered">
+					<div class="infoblock-header text-center">Popular in countries</div>
+					<canvas id="google-trends-popularity-in-countries"></canvas>
+				</div>
+				<div class="bordered">
+					<div class="infoblock-header text-center">People also search</div>
+					<ul id="google-trends-related-list">
+						<li *ngFor="let query of trends ? trends.related : []">
+							{{query}}
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>

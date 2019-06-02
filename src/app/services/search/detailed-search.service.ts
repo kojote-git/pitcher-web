@@ -6,6 +6,18 @@ export interface DateRange {
     end: string
 }
 
+export interface GoogleTrendsDetails {
+    popularity: {
+        date: string,
+        rate: number
+    }[],
+    countries: {
+        country: string,
+        rate: number
+    }[],
+    related: string[]
+}
+
 export interface DetailedResearchView {
     id: number,
     topic: string,
@@ -149,6 +161,31 @@ export class DetailedSearchService {
         ]
     }
 
+    private googleTrends: GoogleTrendsDetails = {
+        popularity: [
+            {
+                date: "04.2018",
+                rate: 10
+            }, {
+                date: "05.2018",
+                rate: 20
+            }
+        ],
+        countries: [
+            {
+                country: "Ukraine",
+                rate: 35
+            }, {
+                country: "Belarus",
+                rate: 40
+            }, {
+                country: "Russia",
+                rate: 20
+            }
+        ],
+        related: ["hello", "world", "abc", "cba"]
+    }
+
     findById(id: number) : Promise<DetailedResearchView> {
         return of(this.researches[0]).toPromise();
     }
@@ -159,5 +196,9 @@ export class DetailedSearchService {
 
     loadPlayStoreDetails(id: number, dateRange?: DateRange) : Promise<PlayStoreDetails> {
         return of(this.playStore).toPromise();
+    }
+
+    loadGoogleTrendsDetails(id: number, dateRange?: DateRange) : Promise<GoogleTrendsDetails> {
+        return of(this.googleTrends).toPromise();
     }
 }

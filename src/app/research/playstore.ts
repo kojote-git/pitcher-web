@@ -20,7 +20,7 @@ export class PlayStoreComponent {
     private drawHistogram(details: PlayStoreDetails) {
         let rates = details.hist;
         new Chart(
-            document.getElementById("play-store-rating-chart").getContext("2d"),
+            (document.getElementById("play-store-rating-chart") as any).getContext("2d"),
             {
                 type: "horizontalBar",
                 data: {
@@ -31,6 +31,15 @@ export class PlayStoreComponent {
                         backgroundColor: "rgb(15, 189, 108)",
                         data: [rates.five, rates.four, rates.three, rates.two, rates.one]
                     }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                fontSize: 20
+                            }                            
+                        }]
+                    }
                 }
             }
         )

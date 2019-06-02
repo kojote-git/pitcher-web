@@ -15,6 +15,21 @@
     margin-left: 10px;
 }
 
+#playstore-stars {
+    font-size: 1.5em;
+}
+
+#playstore-rate {
+    font-size: 2em;
+}
+
+#google-trends-related-list {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    list-style-type: decimal;
+}
+
 .grid-row {
     display: grid;
     grid-template-columns: 49% 49%;
@@ -141,8 +156,18 @@
     grid-column-gap: 2%;
 }
 
+.double-grid {
+    display: grid;
+    grid-template-columns: 49% 49%;
+    grid-column-gap: 2%;
+}
+
 @media (max-width: 992px) {
     .triple-grid {
+        display: block;
+    }
+
+    .double-grid {
         display: block;
     }
 }

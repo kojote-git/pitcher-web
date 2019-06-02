@@ -14,7 +14,6 @@ import { ResearchCreationComponent } from './research-creation/research-creation
 import { MainComponent } from './main/main.component';
 import { HttpSearchService } from './services/search/http-search.service';
 import { ResearchComponent } from './research/research.component';
-import { TwitterComponent } from './research/twitter/twitter.component';
 
 
 @NgModule({
@@ -26,8 +25,7 @@ import { TwitterComponent } from './research/twitter/twitter.component';
     SearchPageComponent,
     ResearchCreationComponent,
     MainComponent,
-    ResearchComponent,
-    TwitterComponent
+    ResearchComponent
   ],
   imports: [
     BrowserModule,

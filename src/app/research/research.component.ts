@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { DetailedSearchService, DetailedResearchView, PlayStoreDetails } from '../services/search/detailed-search.service';
+import { DetailedSearchService, DetailedResearchView, PlayStoreDetails, GoogleTrendsDetails } from '../services/search/detailed-search.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import TwitterComponent from './twitter.component';
-import { PlayStoreComponent } from './playstore.component';
-import { start } from 'repl';
+import { TwitterComponent } from './twitter';
+import { PlayStoreComponent } from './playstore';
+import { TrendsComponent } from './trends';
 
 @Component({
 	selector: 'app-research',
@@ -13,6 +13,7 @@ import { start } from 'repl';
 export class ResearchComponent implements OnInit {
 	private research: DetailedResearchView;
 	private playstore: PlayStoreDetails;
+	private trends: GoogleTrendsDetails;
 	private serviceShown: string;
 
 	constructor(
@@ -47,12 +48,20 @@ export class ResearchComponent implements OnInit {
 					this.displayService(service);
 					new PlayStoreComponent(this.research.id, this.searchService, this);
 					break;
+				case "search":
+					this.displayService(service);
+					new TrendsComponent(this.research.id, this, this.searchService);
+					break;
 			}
 		}
 	}
 
 	setPlayStoreDetails(playStoreDetails: PlayStoreDetails) {
 		this.playstore = playStoreDetails;
+	}
+
+	setGoogleTrendsDetails(details: GoogleTrendsDetails) {
+		this.trends = details;
 	}
 
 	private displayService(service: string) {
