@@ -34,13 +34,13 @@
 			<h3>Choose service to show its analytics</h3>
 			<div class="date-pickers">
 				<div class="date-picker">
-					<span class="bold">From</span>&nbsp;&nbsp;<input type="date"/>
+					<span class="bold">From</span>&nbsp;&nbsp;<input type="date" [(ngModel)]="serviceDateFrom"/>
 				</div>
 				<div class="date-picker">
-					<span class="bold">To</span>&nbsp;&nbsp;<input type="date"/>
+					<span class="bold">To</span>&nbsp;&nbsp;<input type="date" [(ngModel)]="serviceDateTo"/>
 				</div>
 				<div class="date-picker">
-					<div id="refresh" class="bgc-primary">
+					<div id="refresh" class="bgc-primary" (click)="refreshService()">
 						Apply and refresh
 					</div>
 				</div>

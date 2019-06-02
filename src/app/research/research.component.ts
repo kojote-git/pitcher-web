@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DetailedSearchService, DetailedResearchView, PlayStoreDetails, GoogleTrendsDetails } from '../services/search/detailed-search.service';
+import { DetailedSearchService, DetailedResearchView, PlayStoreDetails, GoogleTrendsDetails, DateRange } from '../services/search/detailed-search.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TwitterComponent } from './twitter';
 import { PlayStoreComponent } from './playstore';
@@ -15,6 +15,8 @@ export class ResearchComponent implements OnInit {
 	private playstore: PlayStoreDetails;
 	private trends: GoogleTrendsDetails;
 	private serviceShown: string;
+	private serviceDateFrom: string;
+	private serviceDateTo: string;
 
 	constructor(
 		private searchService: DetailedSearchService,
@@ -41,23 +43,29 @@ export class ResearchComponent implements OnInit {
 		return this.serviceShown == service ? "service-button-active" : "";
 	}
 
-	showService(service: string) {
+	showService(service: string, dateRange?: DateRange) {
 		if (this.research.active_modules.includes(service)) {
 			switch (service) {
 				case "twitter":
 					this.displayService(service);
-					new TwitterComponent(this.research.id, this.searchService);
+					new TwitterComponent(this.research.id, this.searchService, dateRange);
 					break;
 				case "play_store":
 					this.displayService(service);
-					new PlayStoreComponent(this.research.id, this.searchService, this);
+					new PlayStoreComponent(this.research.id, this.searchService, this, dateRange);
 					break;
 				case "search":
 					this.displayService(service);
-					new TrendsComponent(this.research.id, this, this.searchService);
+					new TrendsComponent(this.research.id, this, this.searchService, dateRange);
 					break;
 			}
 		}
+	}
+
+	refreshService() {
+		let from = this.serviceDateFrom ? Date.parse(this.serviceDateFrom).toString("dd.MM.yyyy") : "";
+		let to = this.serviceDateTo ? Date.parse(this.serviceDateTo).toString("dd.MM.yyyy") : "";
+		this.showService(this.serviceShown, { begin: from, end: to});
 	}
 
 	setPlayStoreDetails(playStoreDetails: PlayStoreDetails) {

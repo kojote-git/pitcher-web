@@ -7,7 +7,8 @@ export class PlayStoreComponent {
 
     constructor(id: number, 
         private searchService: DetailedSearchService,
-        private researchComponent: ResearchComponent
+        private researchComponent: ResearchComponent,
+        dateRange?: DateRange
     ) {
         this.searchService.loadPlayStoreDetails(id)
             .then(details => {

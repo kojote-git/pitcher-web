@@ -8,6 +8,12 @@
 #refresh {
     color: rgb(255, 255, 255);
     padding: 5px;
+    border-radius: 3px;
+}
+
+#refresh:hover {
+    cursor: pointer;
+    background-color: rgb(25, 199, 118);
 }
 
 #service-buttons {

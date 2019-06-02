@@ -1,14 +1,15 @@
 import { ResearchComponent } from './research.component';
-import { GoogleTrendsDetails, DetailedSearchService } from '../services/search/detailed-search.service';
+import { GoogleTrendsDetails, DetailedSearchService, DateRange } from '../services/search/detailed-search.service';
 import Chart from "chart.js";
 
 export class TrendsComponent {
     constructor(
         id: number,
         private researchComponent: ResearchComponent,
-        private searchService: DetailedSearchService    
+        private searchService: DetailedSearchService,
+        dateRange?: DateRange
     ) {
-        this.searchService.loadGoogleTrendsDetails(id)
+        this.searchService.loadGoogleTrendsDetails(id, dateRange)
             .then(details => {
                 this.drawPopularity(details);
                 this.drawPopularityInCountries(details);

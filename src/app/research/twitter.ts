@@ -1,11 +1,11 @@
-import { DetailedSearchService, TwitterDetails } from '../services/search/detailed-search.service';
+import { DetailedSearchService, TwitterDetails, DateRange } from '../services/search/detailed-search.service';
 import Chart from "chart.js";
 
 export class TwitterComponent {
     private details: TwitterDetails;
 
-    constructor(id: number, search: DetailedSearchService) {
-        search.loadTwitterDetails(id)
+    constructor(id: number, search: DetailedSearchService, dateRange?: DateRange) {
+        search.loadTwitterDetails(id, dateRange)
             .then(details => {
                 this.details = details;
                 this.drawDiagrams();
