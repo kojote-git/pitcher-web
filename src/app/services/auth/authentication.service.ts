@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { SERVER } from "../shared";
 
 // assets/js/util/cookie
 declare var getCookie: any;
@@ -29,7 +29,7 @@ export interface Request {
 	providedIn: 'root'
 })
 export class AuthenticationService {
-	private authEndpoint = "http://localhost:5080";
+	private authEndpoint = SERVER + "";
 	private endpoints = {
 		registration: {
 			url: this.authEndpoint + "/registration",

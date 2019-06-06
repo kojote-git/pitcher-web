@@ -78,6 +78,10 @@ export interface PlayStoreDetails {
     }[]
 }
 
+export interface NewspapersDetails {
+
+}
+
 @Injectable({
     providedIn: "root"
 })
@@ -200,5 +204,9 @@ export class DetailedSearchService {
 
     loadGoogleTrendsDetails(id: number, dateRange?: DateRange) : Promise<GoogleTrendsDetails> {
         return of(this.googleTrends).toPromise();
+    }
+
+    loadNewspappersDetails(id: number, dateRange?: DateRange) : Promise<NewspapersDetails> {
+        return of({}).toPromise();
     }
 }

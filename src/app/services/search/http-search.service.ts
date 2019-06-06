@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
+import { SERVER } from "../shared";
 
 declare var Date: any;
 
@@ -15,7 +16,7 @@ export class HttpSearchService implements SearchService {
     }
 
     findAll(): Observable<ResearchView[]> {
-        return this.http.get<ResearchView[]>("http://localhost:5080/research/search")
+        return this.http.get<ResearchView[]>(`${SERVER}/research/search`)
             .pipe(
                 map(resp => {
                     return resp["results"];  
@@ -42,7 +43,7 @@ export class HttpSearchService implements SearchService {
             params["keyword"] = filters.keyword;
         }
         let queryString = this.encodeQueryString(params);
-        return this.http.get<ResearchView[]>("http://localhost:5080/research/search" + queryString)
+        return this.http.get<ResearchView[]>(`${SERVER}/research/search${queryString}`)
             .pipe(
                 map(resp => {
                     return resp["results"];

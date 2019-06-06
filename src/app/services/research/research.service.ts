@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AuthenticationService } from '../auth/authentication.service';
+import { SERVER } from "../shared";
 
 export interface ResearchData {
     topic: string,
@@ -22,7 +23,7 @@ export class ResearchService {
     createResearch(researchData: ResearchData) : Promise<any> {
         return this.auth.onBehalf({
             method: "POST",
-            url: "http://localhost:5080/research/use",
+            url: `${SERVER}/research/use`,
             body: researchData
         });
     }

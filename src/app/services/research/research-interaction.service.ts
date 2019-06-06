@@ -3,12 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of, from } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { SERVER } from "../shared";
 
 @Injectable({
 	providedIn: 'root'
 })
 export class ResearchInteractionService {
-    private serverUrl = "http://localhost:5080";
+    private serverUrl = SERVER;
     private endpoints = {
         postLike: {
             url: this.serverUrl + "/research/like",
