@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { DetailedSearchService, DetailedResearchView, PlayStoreDetails, GoogleTrendsDetails, DateRange } from '../services/search/detailed-search.service';
+import { DetailedSearchService, DetailedResearchView, PlayStoreDetails, GoogleTrendsDetails, DateRange, NewspapersDetails } from '../services/search/detailed-search.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TwitterComponent } from './twitter';
 import { PlayStoreComponent } from './playstore';
 import { TrendsComponent } from './trends';
+import { NewspapersComponent } from './newspapers';
 
 @Component({
 	selector: 'app-research',
@@ -14,6 +15,7 @@ export class ResearchComponent implements OnInit {
 	private research: DetailedResearchView;
 	private playstore: PlayStoreDetails;
 	private trends: GoogleTrendsDetails;
+	private newspapers: NewspapersDetails;
 	private serviceShown: string;
 	private serviceDateFrom: string;
 	private serviceDateTo: string;
@@ -27,7 +29,7 @@ export class ResearchComponent implements OnInit {
 			this.searchService.findById(params["id"]).then(resp => {
 				this.research = resp;
 				this.showService(this.research.active_modules[0]);
-			});
+			}).catch(error => router.navigate(["/"]));
 		});
 	}
 
@@ -58,13 +60,17 @@ export class ResearchComponent implements OnInit {
 					this.displayService(service);
 					new TrendsComponent(this.research.id, this, this.searchService, dateRange);
 					break;
+				case "news":
+					this.displayService(service);
+					new NewspapersComponent(this.research.id, this.searchService, this, dateRange);
+					break;
 			}
 		}
 	}
 
 	refreshService() {
-		let from = this.serviceDateFrom ? Date.parse(this.serviceDateFrom).toString("dd.MM.yyyy") : "";
-		let to = this.serviceDateTo ? Date.parse(this.serviceDateTo).toString("dd.MM.yyyy") : "";
+		let from = this.serviceDateFrom ? Date.parse(this.serviceDateFrom).toString(("dd.MM.yyyy" as any)) : "";
+		let to = this.serviceDateTo ? Date.parse(this.serviceDateTo).toString(("dd.MM.yyyy" as any)) : "";
 		this.showService(this.serviceShown, { begin: from, end: to});
 	}
 
@@ -74,6 +80,10 @@ export class ResearchComponent implements OnInit {
 
 	setGoogleTrendsDetails(details: GoogleTrendsDetails) {
 		this.trends = details;
+	}
+
+	setNewspapersDetails(details: NewspapersDetails) {
+		this.newspapers = details;
 	}
 
 	private displayService(service: string) {

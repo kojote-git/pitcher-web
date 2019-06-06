@@ -140,11 +140,39 @@
 				</div>
 				<div class="bordered">
 					<div class="infoblock-header text-center">People also search</div>
-					<ul id="google-trends-related-list">
+					<ul class="double-columns-list" id="google-trends-related-list">
 						<li *ngFor="let query of trends ? trends.related : []">
 							{{query}}
 						</li>
 					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="service-tab hidden" data-service="news">
+			<div class="bordered">
+				<div class="infoblock-header text-center">The most popular newspapers</div>
+				<div id="newspapers-container">
+					<div class="newspaper" *ngFor="let newspaper of newspapers ? newspapers.news : []">
+						<div class="newspaper-source">{{newspaper.source}}</div>
+						<div class="newspaper-link-container">
+							<a class="newspaper-link" href="{{newspaper.link}}">{{newspaper.link}}</a>
+						</div>
+						<div class="newspaper-title">{{newspaper.title}}</div>
+					</div>
+				</div>
+			</div>
+			<div class="double-grid">
+				<div class="bordered">
+					<div class="infoblock-header text-center">What do they say about?</div>
+					<ul class="double-columns-list">
+						<li *ngFor="let word of newspapers ? newspapers.words : []">
+							{{word}}
+						</li>
+					</ul>
+				</div>
+				<div class="bordered">
+					<div class="infoblock-header text-center">Total opinion percentage</div>
+					<canvas id="newspapers-total-opinion-percentage"></canvas>
 				</div>
 			</div>
 		</div>

@@ -144,7 +144,11 @@
 			*ngFor="let research of researches">
 			<div class="research-list-item-section research-title">
 				<div class="research-name">
-					{{research.topic}}
+					<a 	class="menu-link menu-item-text menu-item-text-collapsed"
+						[routerLink]="['/research/research.id']"
+						>
+						{{research.topic}}
+				</a>
 				</div>
 				<div class="research-date">
 					<span class="bold">{{research.creation}}</span>
