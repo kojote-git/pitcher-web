@@ -125,6 +125,7 @@ export class AuthenticationService {
 			return;
 		}
 		let jsonCredentials = JSON.parse(credentials);
+		deleteCookie("userCredentials");
 		this.http.request(
 			this.endpoints.logoutAccess.method,
 			this.endpoints.logoutAccess.url,
@@ -144,7 +145,6 @@ export class AuthenticationService {
 				}
 			);
 		});
-		deleteCookie("userCredentials");
 	}
 
 	public isAuthenticated() : boolean {

@@ -12,7 +12,12 @@ import { NewspapersComponent } from './newspapers';
 	styleUrls: ['./research.component.css']
 })
 export class ResearchComponent implements OnInit {
-	private research: DetailedResearchView;
+	private research: DetailedResearchView = {
+		id: 0, topic: "", keywords: [],
+		owner: {id:0, username: "", fullname: ""},
+		active_modules: [], likes: 0, description: "",
+		subscriptions:0, views:0, last_update:"", creation:""
+	};
 	private playstore: PlayStoreDetails;
 	private trends: GoogleTrendsDetails;
 	private newspapers: NewspapersDetails;
