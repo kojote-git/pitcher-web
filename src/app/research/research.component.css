@@ -229,6 +229,10 @@
     text-decoration: none;
 }
 
+.newspaper-link:hover {
+    text-decoration: underline;
+    color: rgb(55, 183, 186);
+}
 
 .newspaper-link-container {
     margin-bottom: 5px;    

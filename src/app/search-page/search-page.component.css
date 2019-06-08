@@ -233,3 +233,7 @@
     padding: 3px;
     width: 100%;
 }
+
+.menu-link:hover {
+    cursor: pointer;
+}

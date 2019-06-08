@@ -127,6 +127,11 @@
     height: 25px;
     padding: 5px;
     border-radius: 3px;
+    color: white;
+}
+
+.auth-via-media-container:hover {
+    color: white!important;
 }
 
 .auth-via-media-icon {
@@ -140,6 +145,10 @@
     font-size: 1.1em;
     padding: 2px 10px 5px 10px;
     font-weight: 800;
+}
+
+.auth-via-media-text:hover {
+    color: white;
 }
 
 .auth-via-google {

@@ -143,8 +143,8 @@ export class AuthenticationService {
 					}
 				}
 			);
-			deleteCookie("userCredentials");
 		});
+		deleteCookie("userCredentials");
 	}
 
 	public isAuthenticated() : boolean {
