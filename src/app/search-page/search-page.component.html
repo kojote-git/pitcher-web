@@ -193,4 +193,18 @@
 			/>
 		</div>
 	</div>
+	<div *ngIf="researches.length !== 0" class="pagination-controls">
+		<div class="pagination-control pagination-prev" (click)="fetchPage(pagination.prev)">
+			Prev
+		</div>
+		<div 
+			*ngFor="let page of pagination.range" 
+			class="pagination-control {{pagination.currentPage === page ? 'current-page' : ''}}" 
+			(click)="fetchPage(page)">
+			{{page + 1}}
+		</div>
+		<div class="pagination-control pagination-nex" (click)="fetchPage(pagination.next)">
+			Next
+		</div>
+	</div>
 </div>

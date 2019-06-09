@@ -17,6 +17,13 @@ export class SearchPageComponent implements OnInit {
     private liked: number[] = [];
     private subscribed: number[] = [];
     private keyword: string;
+    private filters: Filters = null;
+    private pagination = {
+        currentPage: 0,
+        range: [],
+        next: 0,
+        prev: 0
+    }
 
     constructor(@Inject("SearchService") private searchService: SearchService, 
         private auth: AuthenticationService,
@@ -39,8 +46,8 @@ export class SearchPageComponent implements OnInit {
 	}
 
 	public applyFilters() {
-        this.searchService.filter(this.gatherFilters())
-            .subscribe(researches => this.researches = researches);
+        this.filters = this.gatherFilters();
+        this.fetchPage(0);
     }
 
     private searchByKeywordIfPresent() {
@@ -113,6 +120,35 @@ export class SearchPageComponent implements OnInit {
             return "subscribed";
         }
         return "";
+    }
+
+    private fetchPage(page: number) : void {
+        this.searchService.fetchPage(this.filters, { page: page, size: 10 })
+            .then(res => {
+                this.researches = res.researches;
+                let controls = 4;
+                let range = [];
+                if (res.totalPages != 0) {
+                    let from, to;
+                    if (page < controls - 1) {
+                        from = 0;
+                        to = controls;
+                    } else {
+                        from = page - Math.floor(controls / 2);
+                        to = page + Math.floor(controls / 2);
+                    }
+                    to = to < res.totalPages ? to : res.totalPages;
+                    for (let i = from; i < to; i++) {
+                        range.push(i);
+                    }
+                }
+                this.pagination = {
+                    currentPage: page,
+                    range: range,
+                    next: page < res.totalPages - 1 ? page + 1 : page,
+                    prev: page > 0 ? page - 1 : 0 
+                };
+            })
     }
 
 	private gatherFilters() : Filters {

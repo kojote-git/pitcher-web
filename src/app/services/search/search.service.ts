@@ -24,8 +24,21 @@ export interface Filters {
 	keyword?: string
 }
 
+export interface PageSpecification {
+	page: number,
+	size: number,
+}
+
+export interface Page {
+	researches: ResearchView[],
+	totalPages: number,
+	size: number,
+	page: number
+}
+
 export interface SearchService {
     findAll() : Observable<ResearchView[]>;
 	filter(filters: Filters) : Observable<ResearchView[]>;
+	fetchPage(filters: Filters, pageSpec: PageSpecification) : Promise<Page>;
 	findById(id: any) : Observable<ResearchView>;
 }

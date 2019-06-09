@@ -237,3 +237,33 @@
 .menu-link:hover {
     cursor: pointer;
 }
+
+.pagination-control {
+    padding: 10px;
+    text-align: center;
+    min-width: 2em;
+    background-color: white;
+    display: inline-block;
+    border: 1px solid rgb(235, 235, 235);
+    font-weight: bold;
+}
+
+.pagination-control:hover, .pagination-control.current-page {
+    cursor: pointer;
+    color: white;
+    background-color: rgb(15, 189, 108);
+}
+
+.pagination-control:first-child {
+    border-top-left-radius: 0.25em;
+    border-bottom-left-radius: 0.25em;
+}
+
+.pagination-control:last-child {
+    border-top-right-radius: 0.25em;
+    border-bottom-right-radius: 0.25em;
+}
+
+.pagination-controls {
+    text-align: center;
+}

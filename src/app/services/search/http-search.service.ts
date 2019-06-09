@@ -1,5 +1,5 @@
-import { SearchService, ResearchView, Filters, DateInterval } from './search.service';
-import { Observable, of } from 'rxjs';
+import { SearchService, ResearchView, Filters, DateInterval, PageSpecification, Page } from './search.service';
+import { Observable, of, from } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
@@ -11,6 +11,23 @@ declare var Date: any;
 	providedIn: 'root'
 })
 export class HttpSearchService implements SearchService {
+    fetchPage(filters: Filters, pageSpec: PageSpecification) : Promise<Page> {
+        let start = (pageSpec.page * pageSpec.size) + 1;
+        let limit = pageSpec.size;
+        let res = this.http.get<Page>(`${SERVER}/research/search${this.encodeParams(filters)}&start=${start}&limit=${limit}`)
+            .pipe(
+                map(resp => {
+                    let page: Page = {
+                        totalPages: Math.ceil(resp["count"] / pageSpec.size),
+                        size: pageSpec.size,
+                        page: pageSpec.page,
+                        researches: resp["results"]
+                    }
+                    return page;
+                })
+            );
+        return res.toPromise();
+    }
 
     constructor(private http: HttpClient) {
     }
@@ -26,6 +43,16 @@ export class HttpSearchService implements SearchService {
     }    
     
     filter(filters: Filters): Observable<ResearchView[]> {
+        let queryString = this.encodeParams(filters);
+        return this.http.get<ResearchView[]>(`${SERVER}/research/search${queryString}`)
+            .pipe(
+                map(resp => {
+                    return resp["results"];
+                })
+            );
+    }
+
+    private encodeParams(filters: Filters): string {
         let params = {};
         if (filters.date) {
             this.addDateToParams(params, filters.date);
@@ -42,13 +69,7 @@ export class HttpSearchService implements SearchService {
         if (filters.keyword) {
             params["keyword"] = filters.keyword;
         }
-        let queryString = this.encodeQueryString(params);
-        return this.http.get<ResearchView[]>(`${SERVER}/research/search${queryString}`)
-            .pipe(
-                map(resp => {
-                    return resp["results"];
-                })
-            );
+        return this.encodeQueryString(params);
     }
 
     private addDateToParams(params: Object, date: DateInterval) {
