@@ -1,0 +1,111 @@
+#subscriptions {
+    margin: 15px auto;
+    max-width: 1100px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+}
+
+#page-title {
+    background: rgb(15, 189, 108);
+    max-width: 1100px;
+    margin: 15px auto;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    font-size: 1.65em;
+}
+
+@media (max-width: 576px) {
+    .subscription {
+        flex-basis: 100%;
+    }
+}
+
+@media  (min-width: 576px) {
+    .subscription {
+        flex-basis: 25%;
+    }
+}
+
+.subscription {
+    margin: 1.15em;
+    padding: 15px;
+    background-color: rgb(255, 255, 255);
+    -webkit-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+    flex-grow: 1;
+    border-radius: 2px;
+}
+
+.fa-sync {
+    font-size: 0.85em;
+}
+
+.subscription-title, 
+.subscription-price,
+.subscription-updates,
+.subscription-services-title {
+    text-align: center;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.subscription-title {
+    font-size: 1.2em;
+}
+
+.subscription-price {
+    font-size: 1.3em;
+}
+
+.subscription-updates {
+    font-size: 0.95em;
+}
+
+.subscription-services-title {
+    font-size: 1.05em;
+}
+
+.subscription-services-list {
+    padding: 10px;
+}
+
+.subscription-service {
+    padding: 5px;
+    font-size: 0.9em;
+}
+
+.subscription-service:nth-child(odd) {
+    background-color: rgb(245, 245, 245)
+}
+
+.purchase-button {
+    display: block;
+    padding: 5px;
+    text-align: center;
+    margin: 5px auto;
+    background-color: rgb(15, 189, 108);
+    color: rgb(255, 255, 255);
+    border-radius: 2px;
+    font-weight: bold;
+    transition: 
+        background-color 0.15s ease;
+}
+
+.purchase-button:hover {
+    color: white;
+    background-color: rgb(35, 209, 128);
+    transition: 
+        background-color 0.15s ease;
+}
+
+.purchase-button.disabled {
+    background-color: rgb(155, 165, 182);
+}

@@ -15,6 +15,7 @@ import { MainComponent } from './main/main.component';
 import { HttpSearchService } from './services/search/http-search.service';
 import { ResearchComponent } from './research/research.component';
 import { OAuthComponent } from './oauth/oauth.component';
+import { SubscriptionComponent } from './subscription/subscription.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { OAuthComponent } from './oauth/oauth.component';
     ResearchCreationComponent,
     MainComponent,
     ResearchComponent,
-    OAuthComponent
+    OAuthComponent,
+    SubscriptionComponent
   ],
   imports: [
     BrowserModule,

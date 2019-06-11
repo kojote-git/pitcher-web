@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { SERVER } from "../shared";
+import { map } from 'rxjs/operators';
 
 export interface DateRange {
     begin: string,
@@ -110,7 +111,22 @@ export class DetailedSearchService {
     }
 
     loadTwitterDetails(id: number, dateRange?: DateRange) : Promise<TwitterDetails> {
-        return this.http.get<TwitterDetails>(`${this.ENDPOINT}/twitter?res_id=${id}`).toPromise();
+        return this.http.get<TwitterDetails>(`${this.ENDPOINT}/twitter?res_id=${id}`)
+            .pipe(
+                map(resp => {
+                    let temp = [];
+                    for (let date in resp["popularity_rate"]) {
+                        if (resp["popularity_rate"].hasOwnProperty(date)) {
+                            temp.push({
+                                date: date,
+                                rate: resp["popularity_rate"][date]
+                            });
+                        }
+                    }
+                    resp["popularity_rate"] = temp;
+                    return resp;
+                })
+            ).toPromise();
     }
 
     loadPlayStoreDetails(id: number, dateRange?: DateRange) : Promise<PlayStoreDetails> {
