@@ -16,6 +16,7 @@ import { HttpSearchService } from './services/search/http-search.service';
 import { ResearchComponent } from './research/research.component';
 import { OAuthComponent } from './oauth/oauth.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
+import { PaypalRedirectComponent } from './paypal-redirect/paypal-redirect.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { SubscriptionComponent } from './subscription/subscription.component';
     MainComponent,
     ResearchComponent,
     OAuthComponent,
-    SubscriptionComponent
+    SubscriptionComponent,
+    PaypalRedirectComponent
   ],
   imports: [
     BrowserModule,
