@@ -50,8 +50,6 @@ export class ResearchCreationComponent implements OnInit {
 			.forEach(element => {
 				element.addEventListener("change", this.toggleGooglePlaySuboption);
 			});
-		document.getElementById("use-auto-update")
-			.addEventListener("change", this.toggleUseAutoUpdateOptions);
 		document.getElementById("enter-keyword")
 			.addEventListener("keydown", e => {
 				let target = (e.target as Element)
@@ -68,7 +66,6 @@ export class ResearchCreationComponent implements OnInit {
 		requestData["topic"] = this.getTopic();
 		requestData["description"] = this.getDescription();
 		requestData["modules"] = this.getModules();
-		requestData["update_interval"] = this.getUpdateInterval();
 		requestData["isPublic"] = this.getResearchType() === "public";
 		requestData["analysers"] = this.getAnalyzer();
 		requestData["keywords"] = this.keywords;
@@ -189,9 +186,6 @@ export class ResearchCreationComponent implements OnInit {
 	}
 
 	private getUpdateInterval() : string {
-		if (document.getElementById("use-auto-update")["checked"]) {
-			return this.queryOptionByName("auto-update-option", "");
-		}
 		return "";
 	}
 

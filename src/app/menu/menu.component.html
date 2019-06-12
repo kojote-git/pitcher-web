@@ -30,12 +30,16 @@
 			</a>
 		</div>
 	</div>
-	<div class="menu-item menu-item-collapsed">
-		<div class="menu-item-text menu-item-text-collapsed">
-			Trends
-		</div>
+	<div *ngIf="isAuthenticated()" class="menu-item menu-item-collapsed">
+		<a  class="menu-link menu-item-text menu-item-text-collapsed"
+			[routerLink]="['/sub']">
+			Subscriptions
+		</a>
 		<div class="menu-item-icon-wrapper">
-			<i class="menu-item-icon fas fa-chart-line"></i>
+			<a  class="menu-link"
+				[routerLink]="['/sub']">
+				<i class="menu-item-icon fas fa-tag"></i>
+			</a>
 		</div>
 	</div>
 	<div *ngIf="isAuthenticated()" class="menu-item menu-item-collapsed">

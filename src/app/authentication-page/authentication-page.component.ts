@@ -3,6 +3,7 @@ import { AuthenticationService } from '../services/auth/authentication.service';
 import { HttpResponse } from '@angular/common/http';
 import { Router, ActivatedRouteSnapshot } from '@angular/router';
 import { routerNgProbeToken } from '@angular/router/src/router_module';
+import { SERVER } from "../services/shared";
 
 // assets/js/ui/tabs.js
 declare var TabController: any;
@@ -18,7 +19,8 @@ declare var DATA_TAB_ID: string;
 export class AuthenticationPageComponent implements OnInit {
 	private signUpErrorMessage;
 	private signInErrorMessage;
-	
+	private readonly server = SERVER;
+
 	private signIn = {
 		user_password: "",
 		user: ""
