@@ -27,9 +27,13 @@ export class PaypalRedirectComponent implements OnInit {
 				return;
 			}
 			this.responseMessage = "Your payment is being processed...";
-			http.post(`${SERVER}/payment/${params["type"]}/execute`, {
-				agreement_id: params["id"]
-			}).subscribe(res => router.navigate(["/"]))
+			auth.onBehalf({
+				method: "POST",
+				url: `${SERVER}/payment/${params["type"]}/execute`,
+				body: {
+					agreement_id: params["id"]
+				}
+			}).then(resp => router.navigate(["/"]));
 		})
 	}
 
