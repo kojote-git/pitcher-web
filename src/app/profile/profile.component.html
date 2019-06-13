@@ -1,0 +1,30 @@
+<div class="content-wrapper">
+	<div class="profile-info-first">
+		<div class="profile-avatar-container">
+			<img class="profile-avatar" src="{{profile.avatar}}"/>
+		</div>
+		<div class="profile">
+			<div class="profile-fullname">{{profile.fullname}}</div>
+			<div class="profile-username">@{{profile.username}}</div>
+			<div class="profile-employed">{{profile.employed ? profile.employed : "no company"}}</div>
+		</div>
+	</div>
+	<div class="profile-info-second">
+		<div class="profile-hint">
+			<div>Researches created:</div>
+			<div>{{profile.created}}</div> 
+		</div>
+		<div class="profile-hint">
+			<div>Researches liked:</div>
+			<div>{{profile.liked}}</div>
+		</div>
+		<div class="profile-hint">
+			<div>Researches favourite:</div>
+			<div>{{profile.subscriptions}}</div>
+		</div>
+		<div class="profile-bio">
+			<div class="profile-bio-header">Info/Bio</div>
+			<div class="profile-bio-text">{{profile.bio}}</div>
+		</div>
+	</div>
+</div>

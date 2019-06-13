@@ -8,6 +8,7 @@ import { ResearchComponent } from './research/research.component';
 import { OAuthComponent } from './oauth/oauth.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
 import { PaypalRedirectComponent } from './paypal-redirect/paypal-redirect.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: "", component: MainComponent },
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: "research/:id", component: ResearchComponent },
   { path: "oauth_redirect", component: OAuthComponent },
   { path: "sub", component: SubscriptionComponent },
-  { path: "paypal_redirect", component: PaypalRedirectComponent}
+  { path: "paypal_redirect", component: PaypalRedirectComponent },
+  { path: "profile", component: ProfileComponent }
 ];
 
 @NgModule({
