@@ -1,11 +1,6 @@
-@media (min-width: 768px) {
-    .content-wrapper {
-        max-width: 1000px;
-        margin: 2.5em auto;
-        display: grid;
-        grid-template-columns: 40% 60%;
-        grid-column-gap: 2%;
-    }
+.content-wrapper {
+    max-width: 400px;
+    margin: 2.5em auto;
 }
 
 .profile-info-first, .profile-info-second {
@@ -34,21 +29,13 @@
     margin-bottom: 5px;
 }
 
-.profile-username, .profile-fullname {
+.profile-username, .profile-fullname, .profile-employed {
     text-align: center;
     color: rgb(150, 150, 150);
     font-size: 1.25em;
     font-weight: bold;
     margin-top: 10px;
     margin-bottom: 10px;
-}
-
-.profile-avatar-container {
-    width: 10em;
-    height: 10em;
-    margin: 10px auto;
-    border-radius: 50%;
-    border: 2px solid rgb(15, 189, 108);
 }
 
 .profile-bio-text {
@@ -60,8 +47,4 @@
     margin-top: 10px;
     margin-bottom: 15px;
     font-size: 1.15em;
-}
-
-.profile-avatar {
-    border-radius: 50%;
 }

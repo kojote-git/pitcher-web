@@ -34,4 +34,25 @@ export default class UserService {
         }).then(resp => resp as UserDetails);
     }
 
+    public uploadAvatar(input) : Promise<any> {
+        if (input.files.length === 0) {
+            return null;
+        } 
+        let formData = new FormData();
+        formData.append("avatar", input.files[0]);
+        return this.auth.onBehalf({
+            url: `${SERVER}/update_or_delete_user`,
+            method: "POST",
+            body: formData,
+        });
+    }
+
+    public editProfile(data) : Promise<any> {
+        return this.auth.onBehalf({
+            url: `${SERVER}/update_or_delete_user`,
+            method: "PUT",
+            body: data
+        });
+    }
+
 }
