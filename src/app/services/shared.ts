@@ -1,1 +1,1 @@
-export const SERVER = "http://localhost:5080";
+export const SERVER = "https://pitcher-api.herokuapp.com";
