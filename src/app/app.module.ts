@@ -18,7 +18,6 @@ import { OAuthComponent } from './oauth/oauth.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
 import { PaypalRedirectComponent } from './paypal-redirect/paypal-redirect.component';
 import { ProfileComponent } from './profile/profile.component';
-import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 
 
 @NgModule({
@@ -34,8 +33,7 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
     OAuthComponent,
     SubscriptionComponent,
     PaypalRedirectComponent,
-    ProfileComponent,
-    ProfileEditComponent
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
