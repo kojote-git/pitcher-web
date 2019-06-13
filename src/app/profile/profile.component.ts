@@ -19,7 +19,7 @@ export class ProfileComponent implements OnInit {
 	};
 
 	constructor(private auth: AuthenticationService, private userService: UserService, private router: Router) {
-		if (this.auth.isAuthenticated()) {
+		if (!this.auth.isAuthenticated()) {
 			router.navigate(["/"]);
 			return;
 		}
