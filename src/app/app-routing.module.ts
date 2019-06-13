@@ -9,7 +9,6 @@ import { OAuthComponent } from './oauth/oauth.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
 import { PaypalRedirectComponent } from './paypal-redirect/paypal-redirect.component';
 import { ProfileComponent } from './profile/profile.component';
-import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 
 const routes: Routes = [
   { path: "", component: MainComponent },
@@ -20,8 +19,7 @@ const routes: Routes = [
   { path: "oauth_redirect", component: OAuthComponent },
   { path: "sub", component: SubscriptionComponent },
   { path: "paypal_redirect", component: PaypalRedirectComponent },
-  { path: "profile", component: ProfileComponent },
-  { path: "profile_edit", component: ProfileEditComponent }
+  { path: "profile", component: ProfileComponent }
 ];
 
 @NgModule({
