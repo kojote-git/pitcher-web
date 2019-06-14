@@ -78,8 +78,7 @@ export class HttpSearchService implements SearchService {
                 Date.parseExact(date.begin, "yyyy-MM-dd").toString("dd.MM.yyyy");
         }
         if (date.end) {
-            params["end_date"] = 
-                Date.parseExcat(date.end, "yyyy-MM-dd").toString("dd.MM.yyyy");
+            params["end_date"] = Date.parseExact(date.end, "yyyy-MM-dd").toString("dd.MM.yyyy");
         }
     }
 
